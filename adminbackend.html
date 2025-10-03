@@ -1440,245 +1440,6 @@
         </div>
     </div>
 
-    <!-- Admin View -->
-    <div class="admin-view" id="adminView">
-        <div class="admin-container">
-            <!-- Sidebar -->
-            <nav class="sidebar">
-                <div class="sidebar-header">
-                    <h2>Admin Panel</h2>
-                    <p>Advanced Commodity System</p>
-                </div>
-                <ul class="sidebar-menu">
-                    <li><a href="#" class="menu-link active" data-section="dashboard">🏠 <span>Dashboard</span></a></li>
-                    <li><a href="#" class="menu-link" data-section="products">📦 <span>Products</span></a></li>
-                    <li><a href="#" class="menu-link" data-section="categories">📋 <span>Categories</span></a></li>
-                    <li><a href="#" class="menu-link" data-section="innovation">🔬 <span>Innovation Lab</span></a></li>
-                    <li><a href="#" class="menu-link" data-section="inquiries">📞 <span>Inquiries</span></a></li>
-                    <li><a href="#" class="menu-link" data-section="contacts">✉️ <span>Contact Settings</span></a></li>
-                </ul>
-            </nav>
-
-            <!-- Main Content -->
-            <main class="main-content">
-                <!-- Header -->
-                <header class="main-header">
-                    <h1 id="pageTitle">Dashboard</h1>
-                    <div class="user-info">
-                        <div class="user-avatar">A</div>
-                        <span>Admin User</span>
-                    </div>
-                </header>
-
-                <!-- Dashboard Section -->
-                <section id="dashboard" class="content-section active">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number" id="totalProducts">0</div>
-                            <div class="stat-label">Total Products</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="totalCategories">0</div>
-                            <div class="stat-label">Categories</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="totalProjects">0</div>
-                            <div class="stat-label">R&D Projects</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="totalInquiries">0</div>
-                            <div class="stat-label">Total Inquiries</div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Products Section -->
-                <section id="products" class="content-section">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h3>Advanced Product Management</h3>
-                            <button class="add-btn" onclick="openProductModal()">Add Product</button>
-                        </div>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th>Category</th>
-                                    <th>Monthly Capacity</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="productsTable">
-                                <!-- Products will be loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Categories Section -->
-                <section id="categories" class="content-section">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h3>Category Management</h3>
-                            <button class="add-btn" onclick="openCategoryModal()">Add Category</button>
-                        </div>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Category Name</th>
-                                    <th>Products Count</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="categoriesTable">
-                                <!-- Categories will be loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Innovation Lab Section -->
-                <section id="innovation" class="content-section">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h3>Innovation Lab - Research Projects</h3>
-                            <button class="add-btn" onclick="openProjectModal()" id="addProjectBtn">Add Project</button>
-                        </div>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Project Title</th>
-                                    <th>Phase</th>
-                                    <th>Expected Date</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="projectsTable">
-                                <!-- Projects will be loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Inquiries Section -->
-                <section id="inquiries" class="content-section">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h3>Customer Inquiries</h3>
-                        </div>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Company</th>
-                                    <th>Contact</th>
-                                    <th>Interest</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="inquiriesTable">
-                                <!-- Inquiries will be loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Contact Settings Section -->
-                <section id="contacts" class="content-section">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h3>Contact Information Settings</h3>
-                        </div>
-                        <div style="padding: 25px;">
-                            <form id="contactSettingsForm" onsubmit="saveContactSettings(event)">
-                                <div class="form-section">
-                                    <h4>Sales & Inquiries</h4>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label class="form-label">Sales Email</label>
-                                            <input type="email" class="form-input" name="salesEmail" value="sales@commoditytrading.com" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Sales Phone</label>
-                                            <input type="text" class="form-input" name="salesPhone" value="+91-11-2345-6789" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-section">
-                                    <h4>Technical Support</h4>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label class="form-label">Technical Email</label>
-                                            <input type="email" class="form-input" name="techEmail" value="technical@commoditytrading.com" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Technical Phone</label>
-                                            <input type="text" class="form-input" name="techPhone" value="+91-11-2345-6790" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-section">
-                                    <h4>R&D Partnerships</h4>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label class="form-label">R&D Email</label>
-                                            <input type="email" class="form-input" name="rdEmail" value="innovation@commoditytrading.com" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">R&D Phone</label>
-                                            <input type="text" class="form-input" name="rdPhone" value="+91-11-2345-6791" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-section">
-                                    <h4>Email Recipients for Inquiries</h4>
-                                    <div class="form-row-full">
-                                        <div class="form-group">
-                                            <label class="form-label">Primary Recipient Email</label>
-                                            <input type="email" class="form-input" name="primaryRecipient" value="admin@commoditytrading.com" required>
-                                            <small style="color: #666;">All customer inquiries will be sent to this email</small>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label class="form-label">CC Email 1 (Optional)</label>
-                                            <input type="email" class="form-input" name="ccEmail1" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">CC Email 2 (Optional)</label>
-                                            <input type="email" class="form-input" name="ccEmail2" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div style="margin-top: 30px;">
-                                    <button type="submit" class="btn-primary">Save Contact Settings</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-    </div>
-
-    <!-- Product Modal (Frontend) -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('productModal')">&times;</span>
-            <div class="modal-left" id="modalLeft"></div>
-            <div class="modal-right" id="modalRight"></div>
-        </div>
-    </div>
-
     <!-- Request Quote Modal -->
     <div id="quoteModal" class="quote-modal">
         <div class="quote-modal-content">
@@ -1707,7 +1468,16 @@
                         <label class="quote-form-label">Material of Interest</label>
                         <select class="quote-form-select" name="material" required>
                             <option value="">Select Material</option>
-                            <!-- Options will be loaded dynamically -->
+                            <optgroup label="Sustainable Proteins">
+                                <option value="poultry-protein">Poultry Waste-Derived Protein</option>
+                                <option value="algae-protein">Algae-Based Protein</option>
+                            </optgroup>
+                            <optgroup label="Advanced Catalysts">
+                                <option value="red-mud-pellets">Red Mud Pellets (ROSTA PELLET)</option>
+                                <option value="bio-catalysts">Bio-Catalysts</option>
+                            </optgroup>
+                            <option value="Custom Material Development">Custom Material Development</option>
+                            <option value="Pilot Program">Pilot Program</option>
                         </select>
                     </div>
                     
@@ -1738,1067 +1508,782 @@
         </div>
     </div>
 
-    <!-- Enhanced Product Modal (Admin) -->
-    <div id="adminProductModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <div class="admin-modal-header">
-                <h3 id="productModalTitle">Add New Product</h3>
-                <button class="admin-modal-close" onclick="closeAdminModal('adminProductModal')">&times;</button>
+    <!-- Admin View -->
+    <div class="admin-view" id="adminView">
+        <div class="admin-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Admin Panel</h2>
+                    <p>Commodity Trading System</p>
+                </div>
+                
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" onclick="showSection('dashboard')" class="active">
+                            <span>📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('products')">
+                            <span>📦</span>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('categories')">
+                            <span>📋</span>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('projects')">
+                            <span>🔬</span>
+                            <span>Research Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('inquiries')">
+                            <span>📧</span>
+                            <span>Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('contacts')">
+                            <span>📞</span>
+                            <span>Contact Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showSection('settings')">
+                            <span>⚙️</span>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="admin-modal-body">
-                <form id="productForm">
-                    <input type="hidden" id="productId" name="id">
-                    
-                    <!-- Basic Information -->
-                    <div class="form-section">
-                        <h4>Basic Information</h4>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Product Name</label>
-                                <input type="text" class="form-input" name="title" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Category</label>
-                                <select class="form-select" name="category" id="productCategory" required>
-                                    <option value="">Select Category</option>
-                                </select>
-                            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="main-header">
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <div class="user-info">
+                        <span>Admin User</span>
+                        <div class="user-avatar">A</div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalProducts">0</div>
+                            <div class="stat-label">Total Products</div>
                         </div>
-                        <div class="form-row-full">
-                            <div class="form-group">
-                                <label class="form-label">Product Overview</label>
-                                <textarea class="form-textarea" name="overview" rows="4" required></textarea>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalCategories">0</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalProjects">0</div>
+                            <div class="stat-label">Research Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalInquiries">0</div>
+                            <div class="stat-label">Inquiries</div>
                         </div>
                     </div>
 
-                    <!-- Production Capacity & Pricing -->
-                    <div class="form-section">
-                        <h4>Production Capacity & Pricing</h4>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Monthly Capacity</label>
-                                <input type="text" class="form-input" name="monthlyCapacity" placeholder="e.g., 500 tons" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Annual Capacity</label>
-                                <input type="text" class="form-input" name="annualCapacity" placeholder="e.g., 6,000 tons">
-                            </div>
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Recent Activity</h3>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Price</label>
-                                <input type="text" class="form-input" name="price" placeholder="e.g., $145/tonne" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Lead Time</label>
-                                <input type="text" class="form-input" name="leadTime" placeholder="e.g., 15-30 days">
-                            </div>
-                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024-03-15</td>
+                                    <td>Product</td>
+                                    <td>Added new product: Bio-Catalysts</td>
+                                    <td>Active</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-03-14</td>
+                                    <td>Inquiry</td>
+                                    <td>New inquiry for Red Mud Pellets</td>
+                                    <td>Pending</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <!-- Technical Specifications -->
-                    <div class="form-section">
-                        <h4>Technical Specifications</h4>
-                        <div class="dynamic-fields" id="specificationsFields">
-                            <div class="field-row">
-                                <input type="text" class="form-input" placeholder="Specification Name" name="specName[]">
-                                <input type="text" class="form-input" placeholder="Value" name="specValue[]">
-                                <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                            </div>
+                <!-- Products Section -->
+                <div id="products" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Products Management</h3>
+                            <button class="add-btn" onclick="openProductModal()">Add New Product</button>
                         </div>
-                        <button type="button" class="btn-small btn-add" onclick="addSpecificationField()">Add Specification</button>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Capacity</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded dynamically -->
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <!-- Applications -->
-                    <div class="form-section">
-                        <h4>Applications</h4>
-                        <div class="dynamic-fields" id="applicationsFields">
-                            <div class="field-row">
-                                <input type="text" class="form-input" placeholder="Application Description" name="application[]">
-                                <div></div>
-                                <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                            </div>
+                <!-- Categories Section -->
+                <div id="categories" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Categories Management</h3>
+                            <button class="add-btn" onclick="openCategoryModal()">Add New Category</button>
                         </div>
-                        <button type="button" class="btn-small btn-add" onclick="addApplicationField()">Add Application</button>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Products Count</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoriesTableBody">
+                                <!-- Categories will be loaded dynamically -->
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <!-- Media Upload Section -->
-                    <div class="media-upload-section">
-                        <h4>Product Images & Videos</h4>
-                        <div class="upload-grid">
-                            <div class="upload-item">
-                                <input type="file" class="upload-input" id="productImage" accept="image/*" onchange="handleFileUpload(this, 'product-image')">
-                                <label for="productImage" class="upload-label">
-                                    <div>📷 Product Image</div>
-                                    <div style="font-size: 0.8rem; margin-top: 5px;">Click to upload</div>
-                                </label>
-                                <div id="productImagePreview"></div>
+                <!-- Projects Section -->
+                <div id="projects" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Research Projects Management</h3>
+                            <button class="add-btn" onclick="openProjectModal()">Add New Project</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phase</th>
+                                    <th>Expected Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projectsTableBody">
+                                <!-- Projects will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Inquiries Section -->
+                <div id="inquiries" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Customer Inquiries</h3>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Company</th>
+                                    <th>Contact</th>
+                                    <th>Interest</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inquiriesTableBody">
+                                <!-- Inquiries will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Contact Settings Section -->
+                <div id="contacts" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Contact Information Settings</h3>
+                            <button class="add-btn" onclick="saveContactSettings()">Save Changes</button>
+                        </div>
+                        <div style="padding: 25px;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Sales Email</label>
+                                    <input type="email" class="form-input" id="salesEmailInput" value="sales@commoditytrading.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Sales Phone</label>
+                                    <input type="text" class="form-input" id="salesPhoneInput" value="+91-11-2345-6789">
+                                </div>
                             </div>
                             
-                            <div class="upload-item">
-                                <input type="file" class="upload-input" id="processImage" accept="image/*" onchange="handleFileUpload(this, 'process-image')">
-                                <label for="processImage" class="upload-label">
-                                    <div>🏭 Process Image</div>
-                                    <div style="font-size: 0.8rem; margin-top: 5px;">Click to upload</div>
-                                </label>
-                                <div id="processImagePreview"></div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Technical Email</label>
+                                    <input type="email" class="form-input" id="techEmailInput" value="technical@commoditytrading.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Technical Phone</label>
+                                    <input type="text" class="form-input" id="techPhoneInput" value="+91-11-2345-6790">
+                                </div>
                             </div>
                             
-                            <div class="upload-item">
-                                <input type="file" class="upload-input" id="processVideo" accept="video/*" onchange="handleFileUpload(this, 'process-video')">
-                                <label for="processVideo" class="upload-label">
-                                    <div>🎥 Process Video</div>
-                                    <div style="font-size: 0.8rem; margin-top: 5px;">Click to upload</div>
-                                </label>
-                                <div id="processVideoPreview"></div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">R&D Email</label>
+                                    <input type="email" class="form-input" id="rdEmailInput" value="innovation@commoditytrading.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">R&D Phone</label>
+                                    <input type="text" class="form-input" id="rdPhoneInput" value="+91-11-2345-6791">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings" class="content-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>System Settings</h3>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4>General Settings</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Site Title</label>
+                                    <input type="text" class="form-input" value="Commodity Trading - Complete Admin System">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Admin Email</label>
+                                    <input type="email" class="form-input" value="admin@commoditytrading.com">
+                                </div>
                             </div>
                             
-                            <div class="upload-item">
-                                <input type="file" class="upload-input" id="qualityCharts" accept="image/*" onchange="handleFileUpload(this, 'quality-charts')">
-                                <label for="qualityCharts" class="upload-label">
-                                    <div>📊 Quality Charts</div>
-                                    <div style="font-size: 0.8rem; margin-top: 5px;">Click to upload</div>
-                                </label>
-                                <div id="qualityChartsPreview"></div>
+                            <h4 style="margin-top: 30px;">Display Settings</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Products per Page</label>
+                                    <select class="form-select">
+                                        <option value="10">10</option>
+                                        <option value="20" selected>20</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Default View</label>
+                                    <select class="form-select">
+                                        <option value="grid" selected>Grid View</option>
+                                        <option value="list">List View</option>
+                                    </select>
+                                </div>
                             </div>
+                            
+                            <button class="btn-primary" style="margin-top: 20px;">Save Settings</button>
                         </div>
                     </div>
-
-                    <!-- Environmental Impact -->
-                    <div class="form-section">
-                        <h4>Environmental & Quality Information</h4>
-                        <div class="form-row-full">
-                            <div class="form-group">
-                                <label class="form-label">Environmental Impact</label>
-                                <textarea class="form-textarea" name="environmentalImpact" rows="2" placeholder="e.g., Sustainable production with zero-waste manufacturing processes"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-row-full">
-                            <div class="form-group">
-                                <label class="form-label">Quality Assurance</label>
-                                <textarea class="form-textarea" name="qualityAssurance" rows="2" placeholder="e.g., Rigorous testing and quality certificates provided with each shipment"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row" style="margin-top: 30px;">
-                        <button type="submit" class="btn-primary">Save Product</button>
-                        <button type="button" class="btn-secondary" onclick="closeAdminModal('adminProductModal')">Cancel</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Category Modal (Admin) -->
-    <div id="adminCategoryModal" class="admin-modal">
+    <!-- Admin Modals -->
+    <div id="adminModal" class="admin-modal">
         <div class="admin-modal-content">
             <div class="admin-modal-header">
-                <h3 id="categoryModalTitle">Add New Category</h3>
-                <button class="admin-modal-close" onclick="closeAdminModal('adminCategoryModal')">&times;</button>
+                <h3 id="adminModalTitle">Add New Item</h3>
+                <button class="admin-modal-close" onclick="closeAdminModal()">&times;</button>
             </div>
-            <div class="admin-modal-body">
-                <form id="categoryForm">
-                    <input type="hidden" id="categoryId" name="id">
-                    <div class="form-group">
-                        <label class="form-label">Category Name</label>
-                        <input type="text" class="form-input" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-textarea" name="description" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group" style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button type="submit" class="btn-primary">Save Category</button>
-                        <button type="button" class="btn-secondary" onclick="closeAdminModal('adminCategoryModal')">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Modal (Admin) -->
-    <div id="adminProjectModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <div class="admin-modal-header">
-                <h3 id="projectModalTitle">Add New Project</h3>
-                <button class="admin-modal-close" onclick="closeAdminModal('adminProjectModal')">&times;</button>
-            </div>
-            <div class="admin-modal-body">
-                <form id="projectForm">
-                    <input type="hidden" id="projectId" name="id">
-                    <div class="form-group">
-                        <label class="form-label">Project Title</label>
-                        <input type="text" class="form-input" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Phase</label>
-                        <select class="form-select" name="phase" required>
-                            <option value="">Select Phase</option>
-                            <option value="Manufacturing phase">Manufacturing phase</option>
-                            <option value="Pilot testing">Pilot testing</option>
-                            <option value="Research phase">Research phase</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Expected Date</label>
-                        <input type="text" class="form-input" name="expectedDate" placeholder="e.g., Q2 2026" required>
-                    </div>
-                    <div class="form-group" style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button type="submit" class="btn-primary">Save Project</button>
-                        <button type="button" class="btn-secondary" onclick="closeAdminModal('adminProjectModal')">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Inquiry Edit Modal -->
-    <div id="inquiryEditModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <div class="admin-modal-header">
-                <h3>Edit Inquiry Email Settings</h3>
-                <button class="admin-modal-close" onclick="closeAdminModal('inquiryEditModal')">&times;</button>
-            </div>
-            <div class="admin-modal-body">
-                <form id="inquiryEditForm">
-                    <input type="hidden" id="inquiryIndex" name="index">
-                    <div class="form-group">
-                        <label class="form-label">Primary Recipient Email</label>
-                        <input type="email" class="form-input" name="primaryRecipient" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">CC Email 1 (Optional)</label>
-                        <input type="email" class="form-input" name="ccEmail1">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">CC Email 2 (Optional)</label>
-                        <input type="email" class="form-input" name="ccEmail2">
-                    </div>
-                    <div class="form-group" style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button type="submit" class="btn-primary">Update Email Settings</button>
-                        <button type="button" class="btn-secondary" onclick="closeAdminModal('inquiryEditModal')">Cancel</button>
-                    </div>
-                </form>
+            <div class="admin-modal-body" id="adminModalBody">
+                <!-- Modal content will be loaded dynamically -->
             </div>
         </div>
     </div>
 
     <script>
-        // Enhanced Data Management System with Innovation Lab
-        class AdvancedDataManager {
-            constructor() {
-                this.initializeData();
-                this.loadData();
+        // Data Manager - Central data management
+        const dataManager = {
+            products: {
+                'poultry-protein': {
+                    id: 'poultry-protein',
+                    title: 'Poultry Waste-Derived Protein',
+                    category: 'proteins',
+                    overview: 'High-quality protein extracted from poultry waste streams through advanced bioprocessing techniques.',
+                    specifications: {
+                        'Protein Content': '85-92%',
+                        'Moisture': '<8%',
+                        'pH Level': '6.5-7.5',
+                        'Particle Size': '100-500 μm',
+                        'Shelf Life': '24 months',
+                        'Storage': 'Cool, dry place'
+                    },
+                    capacity: {
+                        'Monthly Capacity': '50 tons/month',
+                        'Lead Time': '2-3 weeks',
+                        'Minimum Order': '1 ton'
+                    },
+                    applications: ['Animal Feed', 'Fertilizer', 'Industrial Applications'],
+                    certifications: ['ISO 9001', 'HACCP', 'Organic Certified'],
+                    status: 'active'
+                },
+                'algae-protein': {
+                    id: 'algae-protein',
+                    title: 'Algae-Based Protein',
+                    category: 'proteins',
+                    overview: 'Sustainable protein derived from specially cultivated algae strains with high nutritional value.',
+                    specifications: {
+                        'Protein Content': '60-70%',
+                        'Omega-3 Content': '15-25%',
+                        'Moisture': '<10%',
+                        'Chlorophyll': '2-4%',
+                        'Heavy Metals': '<10 ppm',
+                        'Microbiological': 'Compliant'
+                    },
+                    capacity: {
+                        'Monthly Capacity': '25 tons/month',
+                        'Lead Time': '3-4 weeks',
+                        'Minimum Order': '500 kg'
+                    },
+                    applications: ['Nutraceuticals', 'Food Supplements', 'Cosmetics'],
+                    certifications: ['Organic', 'Non-GMO', 'Vegan Certified'],
+                    status: 'active'
+                },
+                'red-mud-pellets': {
+                    id: 'red-mud-pellets',
+                    title: 'Red Mud Pellets (ROSTA PELLET)',
+                    category: 'catalysts',
+                    overview: 'Advanced catalyst pellets manufactured from red mud waste for industrial applications.',
+                    specifications: {
+                        'Al2O3 Content': '35-45%',
+                        'Fe2O3 Content': '30-40%',
+                        'Surface Area': '150-200 m²/g',
+                        'Pellet Size': '3-5 mm',
+                        'Crush Strength': '>50 N',
+                        'Porosity': '40-50%'
+                    },
+                    capacity: {
+                        'Monthly Capacity': '500 tons/month',
+                        'Lead Time': '4-6 weeks',
+                        'Minimum Order': '10 tons'
+                    },
+                    applications: ['Petrochemical Catalysis', 'Environmental Remediation', 'Water Treatment'],
+                    certifications: ['ISO 14001', 'REACH Compliant'],
+                    status: 'active'
+                },
+                'bio-catalysts': {
+                    id: 'bio-catalysts',
+                    title: 'Bio-Catalysts',
+                    category: 'catalysts',
+                    overview: 'Enzyme-based catalysts for sustainable chemical processing and biotechnology applications.',
+                    specifications: {
+                        'Enzyme Activity': '1000-5000 U/g',
+                        'Temperature Range': '20-80°C',
+                        'pH Range': '4-9',
+                        'Stability': '12 months at 4°C',
+                        'Purity': '>95%',
+                        'Moisture': '<5%'
+                    },
+                    capacity: {
+                        'Monthly Capacity': '10 tons/month',
+                        'Lead Time': '6-8 weeks',
+                        'Minimum Order': '100 kg'
+                    },
+                    applications: ['Pharmaceutical Manufacturing', 'Food Processing', 'Textile Industry'],
+                    certifications: ['GMP', 'FDA Approved', 'Kosher'],
+                    status: 'active'
+                }
+            },
+            
+            categories: {
+                'proteins': {
+                    id: 'proteins',
+                    name: 'Sustainable Proteins',
+                    description: 'High-quality proteins derived from waste sources for various industrial applications'
+                },
+                'catalysts': {
+                    id: 'catalysts',
+                    name: 'Advanced Catalysts',
+                    description: 'Innovative catalysts from industrial waste streams for green manufacturing'
+                }
+            },
+            
+            researchProjects: [
+                {
+                    id: 'next-gen-protein',
+                    name: 'Next-Gen Protein Extraction',
+                    phase: 'manufacturing-phase',
+                    expected: 'Q2 2026',
+                    status: 'active'
+                },
+                {
+                    id: 'metal-recovery',
+                    name: 'Advanced Metal Recovery Systems',
+                    phase: 'pilot-testing',
+                    expected: 'Q4 2025',
+                    status: 'active'
+                },
+                {
+                    id: 'waste-energy-catalysts',
+                    name: 'Waste-to-Energy Catalysts',
+                    phase: 'research-phase',
+                    expected: 'Q3 2026',
+                    status: 'active'
+                }
+            ],
+            
+            inquiries: [],
+            
+            // Helper methods
+            getProductsByCategory: function(categoryId) {
+                return Object.values(this.products).filter(product => 
+                    product.category === categoryId && product.status === 'active'
+                );
+            },
+            
+            getCategoryProductCount: function(categoryId) {
+                return this.getProductsByCategory(categoryId).length;
+            }
+        };
+
+        // UI Manager - Handle all UI interactions
+        const uiManager = {
+            currentView: 'frontend',
+            currentAdminSection: 'dashboard',
+            
+            init: function() {
+                this.loadFrontendData();
                 this.updateStats();
-                this.renderFrontend();
-                this.renderAdmin();
-                this.loadContactSettings();
-            }
-
-            initializeData() {
-                // Default enhanced product data
-                const defaultProducts = {
-                    'poultry-protein': {
-                        id: 'poultry-protein',
-                        title: 'Poultry Waste-Derived Protein',
-                        category: 'proteins',
-                        overview: 'High-quality protein extracted from poultry waste using advanced processing techniques. Suitable for animal feed, aquaculture, and industrial applications.',
-                        specifications: {
-                            'Protein Content': '65-70%',
-                            'Moisture': '≤ 10%',
-                            'Fat Content': '≤ 12%',
-                            'Ash Content': '≤ 15%',
-                            'Fiber': '≤ 3%',
-                            'pH': '6.0-7.0',
-                            'Salmonella': 'Negative',
-                            'E.coli': '< 10 CFU/g'
-                        },
-                        applications: [
-                            'Animal feed supplement',
-                            'Aquaculture nutrition',
-                            'Pet food ingredient',
-                            'Organic fertilizer component'
-                        ],
-                        capacity: {
-                            'Monthly Capacity': '50 tons',
-                            'Annual Capacity': '600 tons',
-                            'Price': '$2,200/tonne',
-                            'Lead Time': '7-14 days'
-                        },
-                        media: {},
-                        environmentalImpact: 'Sustainable production with zero-waste manufacturing processes.',
-                        qualityAssurance: 'Rigorous testing and quality certificates provided with each shipment.',
-                        visible: true
-                    },
-                    'red-mud-pellets': {
-                        id: 'red-mud-pellets',
-                        title: 'Red Mud Pellets (ROSTA PELLET)',
-                        category: 'catalysts',
-                        overview: 'Premium iron ore pellets manufactured from processed red mud (bauxite residue) using advanced beneficiation techniques.',
-                        specifications: {
-                            'Total Iron (Fe)': '70-72%',
-                            'SiO₂ + Al₂O₃': '≤ 1.2%',
-                            'Phosphorus (P₂O₅)': '≤ 0.006%',
-                            'Sulfur (S)': '≤ 0.005%',
-                            'TiO₂': '≤ 0.10%',
-                            'CaO': '≤ 1.2%',
-                            'MgO': '≤ 0.50%',
-                            'Particle Size': '6-16 mm'
-                        },
-                        applications: [
-                            'Direct Reduced Iron (DRI) production',
-                            'Hydrogen-based steelmaking',
-                            'Electric Arc Furnace (EAF) feedstock',
-                            'Green steel production initiatives'
-                        ],
-                        capacity: {
-                            'Monthly Capacity': '500 tons',
-                            'Annual Capacity': '6,000 tons',
-                            'Price': '$145/tonne',
-                            'Lead Time': '15-30 days'
-                        },
-                        media: {},
-                        environmentalImpact: 'Sustainable production with zero-waste manufacturing processes.',
-                        qualityAssurance: 'Rigorous testing and quality certificates provided with each shipment.',
-                        visible: true
-                    }
-                };
-
-                // Default categories
-                const defaultCategories = {
-                    'proteins': {
-                        id: 'proteins',
-                        name: 'Sustainable Proteins',
-                        description: 'High-quality proteins derived from waste sources for various industrial applications',
-                        visible: true
-                    },
-                    'catalysts': {
-                        id: 'catalysts',
-                        name: 'Advanced Catalysts',
-                        description: 'Innovative catalysts from industrial waste streams for green manufacturing',
-                        visible: true
-                    },
-                    'manufacturing': {
-                        id: 'manufacturing',
-                        name: 'Green Manufacturing Inputs',
-                        description: 'Raw materials specifically designed for sustainable manufacturing processes',
-                        visible: true
-                    },
-                    'compost': {
-                        id: 'compost',
-                        name: 'Sustainable Compost & Amendments',
-                        description: 'Premium compost and soil amendments from various organic waste sources',
-                        visible: true
-                    }
-                };
-
-                // Default research projects - CHANGED "Development phase" TO "Manufacturing phase"
-                const defaultProjects = {
-                    'project1': {
-                        id: 'project1',
-                        title: 'Next-Gen Protein Extraction',
-                        phase: 'Manufacturing phase',
-                        expectedDate: 'Q2 2026',
-                        visible: true
-                    },
-                    'project2': {
-                        id: 'project2',
-                        title: 'Advanced Metal Recovery Systems',
-                        phase: 'Pilot testing',
-                        expectedDate: 'Q4 2025',
-                        visible: true
-                    },
-                    'project3': {
-                        id: 'project3',
-                        title: 'Waste-to-Energy Catalysts',
-                        phase: 'Research phase',
-                        expectedDate: 'Q3 2026',
-                        visible: true
-                    }
-                };
-
-                // Default contact settings
-                const defaultContactSettings = {
-                    salesEmail: 'sales@commoditytrading.com',
-                    salesPhone: '+91-11-2345-6789',
-                    techEmail: 'technical@commoditytrading.com',
-                    techPhone: '+91-11-2345-6790',
-                    rdEmail: 'innovation@commoditytrading.com',
-                    rdPhone: '+91-11-2345-6791',
-                    primaryRecipient: 'admin@commoditytrading.com',
-                    ccEmail1: '',
-                    ccEmail2: ''
-                };
-
-                // Initialize if not exists
-                if (!localStorage.getItem('products')) {
-                    localStorage.setItem('products', JSON.stringify(defaultProducts));
-                }
-                if (!localStorage.getItem('categories')) {
-                    localStorage.setItem('categories', JSON.stringify(defaultCategories));
-                }
-                if (!localStorage.getItem('projects')) {
-                    localStorage.setItem('projects', JSON.stringify(defaultProjects));
-                }
-                if (!localStorage.getItem('inquiries')) {
-                    localStorage.setItem('inquiries', JSON.stringify([]));
-                }
-                if (!localStorage.getItem('contactSettings')) {
-                    localStorage.setItem('contactSettings', JSON.stringify(defaultContactSettings));
-                }
-            }
-
-            loadData() {
-                this.products = JSON.parse(localStorage.getItem('products') || '{}');
-                this.categories = JSON.parse(localStorage.getItem('categories') || '{}');
-                this.projects = JSON.parse(localStorage.getItem('projects') || '{}');
-                this.inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
-                this.contactSettings = JSON.parse(localStorage.getItem('contactSettings') || '{}');
-            }
-
-            saveData() {
-                localStorage.setItem('products', JSON.stringify(this.products));
-                localStorage.setItem('categories', JSON.stringify(this.categories));
-                localStorage.setItem('projects', JSON.stringify(this.projects));
-                localStorage.setItem('inquiries', JSON.stringify(this.inquiries));
-                localStorage.setItem('contactSettings', JSON.stringify(this.contactSettings));
-            }
-
-            updateStats() {
-                document.getElementById('totalProducts').textContent = Object.keys(this.products).length;
-                document.getElementById('totalCategories').textContent = Object.keys(this.categories).length;
-                document.getElementById('totalProjects').textContent = Object.keys(this.projects).length;
-                document.getElementById('totalInquiries').textContent = this.inquiries.length;
-            }
-
-            getVisibleProducts() {
-                return Object.values(this.products).filter(product => product.visible);
-            }
-
-            getVisibleCategories() {
-                return Object.values(this.categories).filter(category => category.visible);
-            }
-
-            getVisibleProjects() {
-                return Object.values(this.projects).filter(project => project.visible);
-            }
-
-            getProductsByCategory(categoryId) {
-                return this.getVisibleProducts().filter(product => product.category === categoryId);
-            }
-
-            // Frontend rendering
-            renderFrontend() {
-                this.renderProducts();
-                this.renderFilters();
-                this.renderProjects();
-                this.loadContactCategoryOptions();
-                this.loadQuoteCategoryOptions();
-                this.updateContactInfo();
-            }
-
-            renderProducts() {
+                this.loadAdminTables();
+            },
+            
+            loadFrontendData: function() {
+                this.renderCategories();
+                this.renderCategoryFilters();
+                this.renderResearchProjects();
+            },
+            
+            renderCategories: function() {
                 const grid = document.getElementById('productsGrid');
-                const categories = this.getVisibleCategories();
+                if (!grid) return;
                 
-                grid.innerHTML = '';
-
-                categories.forEach(category => {
-                    const products = this.getProductsByCategory(category.id);
+                const categories = Object.values(dataManager.categories);
+                
+                grid.innerHTML = categories.map(category => {
+                    const products = dataManager.getProductsByCategory(category.id);
+                    const productCount = products.length;
                     
-                    if (products.length === 0) return;
-                    
-                    const categoryCard = document.createElement('div');
-                    categoryCard.className = 'category-card';
-                    categoryCard.setAttribute('data-category', category.id);
-                    categoryCard.onclick = () => openCategory(category.id);
-
-                    categoryCard.innerHTML = `
-                        <div class="category-header">
-                            <h3 class="category-title">${category.name}</h3>
-                            <span class="product-count">${products.length} products</span>
+                    return `
+                        <div class="category-card" data-category="${category.id}">
+                            <div class="category-header">
+                                <div>
+                                    <h3 class="category-title">${category.name}</h3>
+                                    <p class="category-description">${category.description}</p>
+                                </div>
+                                <span class="product-count">${productCount} products</span>
+                            </div>
+                            <ul class="product-list">
+                                ${products.map(product => `
+                                    <li class="product-item" onclick="openProductModal('${product.id}')">
+                                        <div class="product-name">${product.title}</div>
+                                        <div class="product-capacity">Capacity: ${product.capacity['Monthly Capacity']}</div>
+                                    </li>
+                                `).join('')}
+                            </ul>
                         </div>
-                        <p>${category.description}</p>
-                        <ul class="product-list">
-                            ${products.map(product => `
-                                <li class="product-item" onclick="event.stopPropagation(); openProductModal('${product.id}')">
-                                    <div class="product-name">${product.title}</div>
-                                    <div class="product-capacity">Capacity: ${product.capacity['Monthly Capacity'] || 'N/A'}</div>
-                                </li>
-                            `).join('')}
-                        </ul>
                     `;
-
-                    grid.appendChild(categoryCard);
-                });
-            }
-
-            renderFilters() {
+                }).join('');
+            },
+            
+            renderCategoryFilters: function() {
                 const filtersContainer = document.getElementById('categoryFilters');
-                const categories = this.getVisibleCategories();
-
+                if (!filtersContainer) return;
+                
+                const categories = Object.values(dataManager.categories);
+                
                 filtersContainer.innerHTML = `
                     <button class="filter-btn active" onclick="filterCategory('all')">All Categories</button>
                     ${categories.map(category => `
                         <button class="filter-btn" onclick="filterCategory('${category.id}')">${category.name}</button>
                     `).join('')}
                 `;
-            }
-
-            renderProjects() {
+                
+                // Update form select options
+                const interestSelect = document.querySelector('select[name="interest"]');
+                if (interestSelect) {
+                    interestSelect.innerHTML = `
+                        <option value="">Select Category</option>
+                        ${categories.map(category => `
+                            <option value="${category.id}">${category.name}</option>
+                        `).join('')}
+                        <option value="custom">Custom Development</option>
+                    `;
+                }
+            },
+            
+            renderResearchProjects: function() {
                 const container = document.getElementById('researchProjectsContainer');
-                const projects = this.getVisibleProjects();
-
-                container.innerHTML = projects.map(project => `
+                if (!container) return;
+                
+                container.innerHTML = dataManager.researchProjects.map(project => `
                     <div class="project-card">
-                        <h4 class="project-name">${project.title}</h4>
-                        <div class="project-phase ${project.phase.toLowerCase().replace(' ', '-')}">${project.phase}</div>
-                        <div class="project-expected">Expected: ${project.expectedDate}</div>
+                        <h4 class="project-name">${project.name}</h4>
+                        <div class="project-phase ${project.phase}">${project.phase.replace('-', ' ')}</div>
+                        <div class="project-expected">Expected: ${project.expected}</div>
                     </div>
                 `).join('');
-            }
-
-            loadContactCategoryOptions() {
-                const select = document.querySelector('.contact-form select[name="interest"]');
-                const categories = this.getVisibleCategories();
-
-                select.innerHTML = `
-                    <option value="">Select Category</option>
-                    ${categories.map(category => `
-                        <option value="${category.id}">${category.name}</option>
-                    `).join('')}
-                    <option value="custom">Custom Development</option>
-                `;
-            }
-
-            loadQuoteCategoryOptions() {
-                const select = document.querySelector('#quoteForm select[name="material"]');
-                const categories = this.getVisibleCategories();
-
-                select.innerHTML = `
-                    <option value="">Select Material</option>
-                    ${categories.map(category => `
-                        <optgroup label="${category.name}">
-                            ${this.getProductsByCategory(category.id).map(product => `
-                                <option value="${product.id}">${product.title}</option>
-                            `).join('')}
-                        </optgroup>
-                    `).join('')}
-                    <option value="Custom Material Development">Custom Material Development</option>
-                    <option value="Pilot Program">Pilot Program</option>
-                `;
-            }
-
-            updateContactInfo() {
-                document.getElementById('salesEmail').textContent = this.contactSettings.salesEmail || 'sales@commoditytrading.com';
-                document.getElementById('salesPhone').textContent = this.contactSettings.salesPhone || '+91-11-2345-6789';
-                document.getElementById('techEmail').textContent = this.contactSettings.techEmail || 'technical@commoditytrading.com';
-                document.getElementById('techPhone').textContent = this.contactSettings.techPhone || '+91-11-2345-6790';
-                document.getElementById('rdEmail').textContent = this.contactSettings.rdEmail || 'innovation@commoditytrading.com';
-                document.getElementById('rdPhone').textContent = this.contactSettings.rdPhone || '+91-11-2345-6791';
-            }
-
-            loadContactSettings() {
-                const form = document.getElementById('contactSettingsForm');
-                if (form && this.contactSettings) {
-                    Object.keys(this.contactSettings).forEach(key => {
-                        const field = form.elements[key];
-                        if (field) {
-                            field.value = this.contactSettings[key] || '';
-                        }
-                    });
-                }
-            }
-
-            // Admin rendering
-            renderAdmin() {
-                this.renderProductsAdmin();
-                this.renderCategoriesAdmin();
-                this.renderProjectsAdmin();
-                this.renderInquiriesAdmin();
-                this.loadCategoryOptions();
-            }
-
-            renderProductsAdmin() {
-                const tbody = document.getElementById('productsTable');
-                tbody.innerHTML = '';
-
-                Object.values(this.products).forEach(product => {
-                    const category = this.categories[product.category];
-                    const row = document.createElement('tr');
-                    if (!product.visible) row.classList.add('hidden');
-
-                    row.innerHTML = `
+            },
+            
+            updateStats: function() {
+                const totalProducts = Object.keys(dataManager.products).length;
+                const totalCategories = Object.keys(dataManager.categories).length;
+                const totalProjects = dataManager.researchProjects.length;
+                const totalInquiries = dataManager.inquiries.length;
+                
+                // Update dashboard stats
+                const statsElements = {
+                    totalProducts: document.getElementById('totalProducts'),
+                    totalCategories: document.getElementById('totalCategories'),
+                    totalProjects: document.getElementById('totalProjects'),
+                    totalInquiries: document.getElementById('totalInquiries')
+                };
+                
+                if (statsElements.totalProducts) statsElements.totalProducts.textContent = totalProducts;
+                if (statsElements.totalCategories) statsElements.totalCategories.textContent = totalCategories;
+                if (statsElements.totalProjects) statsElements.totalProjects.textContent = totalProjects;
+                if (statsElements.totalInquiries) statsElements.totalInquiries.textContent = totalInquiries;
+            },
+            
+            loadAdminTables: function() {
+                this.loadProductsTable();
+                this.loadCategoriesTable();
+                this.loadProjectsTable();
+                this.loadInquiriesTable();
+            },
+            
+            loadProductsTable: function() {
+                const tbody = document.getElementById('productsTableBody');
+                if (!tbody) return;
+                
+                tbody.innerHTML = Object.values(dataManager.products).map(product => `
+                    <tr>
+                        <td>${product.id}</td>
                         <td>${product.title}</td>
-                        <td>${category ? category.name : 'Unknown'}</td>
-                        <td>${product.capacity['Monthly Capacity'] || 'N/A'}</td>
-                        <td>${product.capacity['Price'] || 'N/A'}</td>
-                        <td>${product.visible ? 'Visible' : 'Hidden'}</td>
+                        <td>${dataManager.categories[product.category].name}</td>
+                        <td>${product.capacity['Monthly Capacity']}</td>
+                        <td><span class="status ${product.status}">${product.status}</span></td>
                         <td>
                             <button class="action-btn edit-btn" onclick="editProduct('${product.id}')">Edit</button>
-                            <button class="action-btn toggle-btn" onclick="dataManager.toggleProductVisibility('${product.id}')">
-                                ${product.visible ? 'Hide' : 'Show'}
+                            <button class="action-btn view-btn" onclick="viewProduct('${product.id}')">View</button>
+                            <button class="action-btn toggle-btn" onclick="toggleProduct('${product.id}')">
+                                ${product.status === 'active' ? 'Hide' : 'Show'}
                             </button>
-                            <button class="action-btn delete-btn" onclick="dataManager.deleteProduct('${product.id}')">Delete</button>
+                            <button class="action-btn delete-btn" onclick="deleteProduct('${product.id}')">Delete</button>
                         </td>
-                    `;
-
-                    tbody.appendChild(row);
-                });
-            }
-
-            renderCategoriesAdmin() {
-                const tbody = document.getElementById('categoriesTable');
-                tbody.innerHTML = '';
-
-                Object.values(this.categories).forEach(category => {
-                    const productCount = this.getProductsByCategory(category.id).length;
-                    const row = document.createElement('tr');
-                    if (!category.visible) row.classList.add('hidden');
-
-                    row.innerHTML = `
+                    </tr>
+                `).join('');
+            },
+            
+            loadCategoriesTable: function() {
+                const tbody = document.getElementById('categoriesTableBody');
+                if (!tbody) return;
+                
+                tbody.innerHTML = Object.values(dataManager.categories).map(category => `
+                    <tr>
+                        <td>${category.id}</td>
                         <td>${category.name}</td>
-                        <td>${productCount}</td>
-                        <td>${category.visible ? 'Visible' : 'Hidden'}</td>
+                        <td>${category.description}</td>
+                        <td>${dataManager.getCategoryProductCount(category.id)}</td>
                         <td>
                             <button class="action-btn edit-btn" onclick="editCategory('${category.id}')">Edit</button>
-                            <button class="action-btn toggle-btn" onclick="dataManager.toggleCategoryVisibility('${category.id}')">
-                                ${category.visible ? 'Hide' : 'Show'}
-                            </button>
-                            <button class="action-btn delete-btn" onclick="dataManager.deleteCategory('${category.id}')">Delete</button>
+                            <button class="action-btn delete-btn" onclick="deleteCategory('${category.id}')">Delete</button>
                         </td>
-                    `;
-
-                    tbody.appendChild(row);
-                });
-            }
-
-            renderProjectsAdmin() {
-                const tbody = document.getElementById('projectsTable');
-                const addBtn = document.getElementById('addProjectBtn');
+                    </tr>
+                `).join('');
+            },
+            
+            loadProjectsTable: function() {
+                const tbody = document.getElementById('projectsTableBody');
+                if (!tbody) return;
                 
-                // Check if we have 3 or more projects
-                const projectCount = Object.keys(this.projects).length;
-                if (projectCount >= 3) {
-                    addBtn.style.display = 'none';
-                } else {
-                    addBtn.style.display = 'inline-block';
-                }
-                
-                tbody.innerHTML = '';
-
-                Object.values(this.projects).forEach(project => {
-                    const row = document.createElement('tr');
-                    if (!project.visible) row.classList.add('hidden');
-
-                    row.innerHTML = `
-                        <td>${project.title}</td>
-                        <td><span class="project-phase ${project.phase.toLowerCase().replace(' ', '-')}">${project.phase}</span></td>
-                        <td>${project.expectedDate}</td>
-                        <td>${project.visible ? 'Visible' : 'Hidden'}</td>
+                tbody.innerHTML = dataManager.researchProjects.map(project => `
+                    <tr>
+                        <td>${project.name}</td>
+                        <td><span class="project-phase ${project.phase}">${project.phase.replace('-', ' ')}</span></td>
+                        <td>${project.expected}</td>
+                        <td>${project.status}</td>
                         <td>
                             <button class="action-btn edit-btn" onclick="editProject('${project.id}')">Edit</button>
-                            <button class="action-btn toggle-btn" onclick="dataManager.toggleProjectVisibility('${project.id}')">
-                                ${project.visible ? 'Hide' : 'Show'}
-                            </button>
-                            <button class="action-btn delete-btn" onclick="dataManager.deleteProject('${project.id}')">Delete</button>
+                            <button class="action-btn delete-btn" onclick="deleteProject('${project.id}')">Delete</button>
                         </td>
-                    `;
-
-                    tbody.appendChild(row);
-                });
-            }
-
-            renderInquiriesAdmin() {
-                const tbody = document.getElementById('inquiriesTable');
-                tbody.innerHTML = '';
-
-                this.inquiries.forEach((inquiry, index) => {
-                    const row = document.createElement('tr');
-                    const date = new Date(inquiry.date).toLocaleDateString();
-
-                    row.innerHTML = `
-                        <td>${date}</td>
-                        <td>${inquiry.company || 'N/A'}</td>
-                        <td>${inquiry.contact || 'N/A'}</td>
-                        <td>${inquiry.interest || 'N/A'}</td>
-                        <td>${inquiry.status}</td>
-                        <td>
-                            <button class="action-btn view-btn" onclick="viewInquiry(${index})">View</button>
-                            <button class="action-btn edit-btn" onclick="editInquiryEmail(${index})">Edit Email</button>
-                        </td>
-                    `;
-
-                    tbody.appendChild(row);
-                });
-            }
-
-            loadCategoryOptions() {
-                const select = document.getElementById('productCategory');
-                if (!select) return;
+                    </tr>
+                `).join('');
+            },
+            
+            loadInquiriesTable: function() {
+                const tbody = document.getElementById('inquiriesTableBody');
+                if (!tbody) return;
                 
-                select.innerHTML = '<option value="">Select Category</option>';
-
-                Object.values(this.categories).forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category.id;
-                    option.textContent = category.name;
-                    select.appendChild(option);
-                });
-            }
-
-            // Enhanced CRUD Operations - Products
-            addProduct(productData) {
-                const id = productData.id || this.generateId();
-                
-                // Process specifications
-                const specifications = {};
-                if (productData.specName && productData.specValue) {
-                    for (let i = 0; i < productData.specName.length; i++) {
-                        if (productData.specName[i] && productData.specValue[i]) {
-                            specifications[productData.specName[i]] = productData.specValue[i];
-                        }
-                    }
-                }
-
-                // Process applications
-                const applications = [];
-                if (productData.application) {
-                    productData.application.forEach(app => {
-                        if (app.trim()) applications.push(app.trim());
-                    });
-                }
-
-                this.products[id] = {
-                    id: id,
-                    title: productData.title,
-                    category: productData.category,
-                    overview: productData.overview,
-                    specifications: specifications,
-                    applications: applications,
-                    capacity: {
-                        'Monthly Capacity': productData.monthlyCapacity,
-                        'Annual Capacity': productData.annualCapacity || '',
-                        'Price': productData.price,
-                        'Lead Time': productData.leadTime || ''
-                    },
-                    media: productData.media || {},
-                    environmentalImpact: productData.environmentalImpact || '',
-                    qualityAssurance: productData.qualityAssurance || '',
-                    visible: true
-                };
-                
-                this.saveData();
-                this.updateStats();
-                this.renderFrontend();
-                this.renderAdmin();
-            }
-
-            editProduct(id, productData) {
-                if (this.products[id]) {
-                    // Process specifications
-                    const specifications = {};
-                    if (productData.specName && productData.specValue) {
-                        for (let i = 0; i < productData.specName.length; i++) {
-                            if (productData.specName[i] && productData.specValue[i]) {
-                                specifications[productData.specName[i]] = productData.specValue[i];
-                            }
-                        }
-                    }
-
-                    // Process applications
-                    const applications = [];
-                    if (productData.application) {
-                        productData.application.forEach(app => {
-                            if (app.trim()) applications.push(app.trim());
-                        });
-                    }
-
-                    this.products[id] = {
-                        ...this.products[id],
-                        title: productData.title,
-                        category: productData.category,
-                        overview: productData.overview,
-                        specifications: specifications,
-                        applications: applications,
-                        capacity: {
-                            'Monthly Capacity': productData.monthlyCapacity,
-                            'Annual Capacity': productData.annualCapacity || '',
-                            'Price': productData.price,
-                            'Lead Time': productData.leadTime || ''
-                        },
-                        media: productData.media || this.products[id].media || {},
-                        environmentalImpact: productData.environmentalImpact || '',
-                        qualityAssurance: productData.qualityAssurance || ''
-                    };
-                    
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            deleteProduct(id) {
-                if (confirm('Are you sure you want to delete this product?')) {
-                    delete this.products[id];
-                    this.saveData();
-                    this.updateStats();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            toggleProductVisibility(id) {
-                if (this.products[id]) {
-                    this.products[id].visible = !this.products[id].visible;
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            // CRUD Operations - Categories
-            addCategory(categoryData) {
-                const id = categoryData.id || this.generateId();
-                this.categories[id] = {
-                    id: id,
-                    name: categoryData.name,
-                    description: categoryData.description,
-                    visible: true
-                };
-                this.saveData();
-                this.updateStats();
-                this.renderFrontend();
-                this.renderAdmin();
-            }
-
-            editCategory(id, categoryData) {
-                if (this.categories[id]) {
-                    this.categories[id] = {
-                        ...this.categories[id],
-                        name: categoryData.name,
-                        description: categoryData.description
-                    };
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            deleteCategory(id) {
-                if (confirm('Are you sure you want to delete this category?')) {
-                    delete this.categories[id];
-                    this.saveData();
-                    this.updateStats();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            toggleCategoryVisibility(id) {
-                if (this.categories[id]) {
-                    this.categories[id].visible = !this.categories[id].visible;
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            // CRUD Operations - Projects
-            addProject(projectData) {
-                // Check if we already have 3 projects
-                if (Object.keys(this.projects).length >= 3) {
-                    alert('Maximum 3 projects allowed. Please delete an existing project to add a new one.');
+                if (dataManager.inquiries.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px; color: #666;">No inquiries yet</td></tr>';
                     return;
                 }
                 
-                const id = projectData.id || this.generateId();
-                this.projects[id] = {
-                    id: id,
-                    title: projectData.title,
-                    phase: projectData.phase,
-                    expectedDate: projectData.expectedDate,
-                    visible: true
-                };
-                this.saveData();
-                this.updateStats();
-                this.renderFrontend();
-                this.renderAdmin();
+                tbody.innerHTML = dataManager.inquiries.map(inquiry => `
+                    <tr>
+                        <td>${inquiry.date}</td>
+                        <td>${inquiry.company}</td>
+                        <td>${inquiry.contact}</td>
+                        <td>${inquiry.interest}</td>
+                        <td>${inquiry.status || 'New'}</td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="viewInquiry('${inquiry.id}')">View</button>
+                            <button class="action-btn delete-btn" onclick="deleteInquiry('${inquiry.id}')">Delete</button>
+                        </td>
+                    </tr>
+                `).join('');
             }
+        };
 
-            editProject(id, projectData) {
-                if (this.projects[id]) {
-                    this.projects[id] = {
-                        ...this.projects[id],
-                        title: projectData.title,
-                        phase: projectData.phase,
-                        expectedDate: projectData.expectedDate
-                    };
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            deleteProject(id) {
-                if (confirm('Are you sure you want to delete this project?')) {
-                    delete this.projects[id];
-                    this.saveData();
-                    this.updateStats();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            toggleProjectVisibility(id) {
-                if (this.projects[id]) {
-                    this.projects[id].visible = !this.projects[id].visible;
-                    this.saveData();
-                    this.renderFrontend();
-                    this.renderAdmin();
-                }
-            }
-
-            // CRUD Operations - Inquiries
-            addInquiry(inquiryData) {
-                const inquiry = {
-                    id: Date.now(),
-                    company: inquiryData.company,
-                    contact: inquiryData.contact,
-                    email: inquiryData.email,
-                    interest: inquiryData.interest,
-                    message: inquiryData.message,
-                    material: inquiryData.material || '',
-                    volume: inquiryData.volume || '',
-                    timeline: inquiryData.timeline || '',
-                    requirements: inquiryData.requirements || '',
-                    date: new Date().toISOString(),
-                    status: 'New',
-                    recipients: {
-                        primary: this.contactSettings.primaryRecipient,
-                        cc: [this.contactSettings.ccEmail1, this.contactSettings.ccEmail2].filter(email => email)
-                    }
-                };
-                this.inquiries.push(inquiry);
-                this.saveData();
-                this.updateStats();
-                this.renderAdmin();
-            }
-
-            updateInquiryEmailSettings(index, emailSettings) {
-                if (this.inquiries[index]) {
-                    this.inquiries[index].recipients = {
-                        primary: emailSettings.primaryRecipient,
-                        cc: [emailSettings.ccEmail1, emailSettings.ccEmail2].filter(email => email)
-                    };
-                    this.saveData();
-                    this.renderAdmin();
-                }
-            }
-
-            saveContactSettings(settings) {
-                this.contactSettings = { ...settings };
-                this.saveData();
-                this.updateContactInfo();
-            }
-
-            generateId() {
-                return 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            }
-        }
-
-        // Initialize data manager
-        const dataManager = new AdvancedDataManager();
-
-        // Mode switching
-        let currentMode = 'frontend';
-
+        // Global functions for UI interactions
         function toggleMode() {
             const frontendView = document.getElementById('frontendView');
             const adminView = document.getElementById('adminView');
-            const toggleBtn = document.getElementById('modeToggle');
-
-            if (currentMode === 'frontend') {
+            const toggleButton = document.getElementById('modeToggle');
+            
+            if (uiManager.currentView === 'frontend') {
+                // Switch to admin
                 frontendView.classList.remove('active');
                 adminView.classList.add('active');
-                toggleBtn.textContent = 'Switch to Frontend';
-                currentMode = 'admin';
+                toggleButton.textContent = 'Switch to Frontend';
+                uiManager.currentView = 'admin';
             } else {
+                // Switch to frontend  
                 adminView.classList.remove('active');
                 frontendView.classList.add('active');
-                toggleBtn.textContent = 'Switch to Admin';
-                currentMode = 'frontend';
+                toggleButton.textContent = 'Switch to Admin';
+                uiManager.currentView = 'frontend';
             }
         }
 
-        // Media upload handling
-        function handleFileUpload(input, type) {
-            const file = input.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const previewId = input.id + 'Preview';
-                const preview = document.getElementById(previewId);
-                
-                if (file.type.startsWith('image/')) {
-                    preview.innerHTML = `
-                        <img src="${e.target.result}" class="upload-preview" alt="Preview">
-                        <button type="button" class="upload-remove" onclick="removeMedia('${input.id}')">&times;</button>
-                    `;
-                } else if (file.type.startsWith('video/')) {
-                    preview.innerHTML = `
-                        <video src="${e.target.result}" class="upload-preview" controls></video>
-                        <button type="button" class="upload-remove" onclick="removeMedia('${input.id}')">&times;</button>
-                    `;
-                }
-                
-                // Store in form data for later use
-                input.dataset.fileData = e.target.result;
+        function showSection(sectionId) {
+            // Update active menu item
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.closest('a').classList.add('active');
+            
+            // Show selected section
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update page title
+            const titles = {
+                dashboard: 'Dashboard',
+                products: 'Products Management',
+                categories: 'Categories Management',
+                projects: 'Research Projects',
+                inquiries: 'Customer Inquiries',
+                contacts: 'Contact Settings',
+                settings: 'System Settings'
             };
-            reader.readAsDataURL(file);
+            document.getElementById('pageTitle').textContent = titles[sectionId];
+            
+            uiManager.currentAdminSection = sectionId;
         }
 
-        function removeMedia(inputId) {
-            const input = document.getElementById(inputId);
-            const preview = document.getElementById(inputId + 'Preview');
-            input.value = '';
-            input.dataset.fileData = '';
-            preview.innerHTML = '';
-        }
-
-        // Dynamic field management
-        function addSpecificationField() {
-            const container = document.getElementById('specificationsFields');
-            const fieldRow = document.createElement('div');
-            fieldRow.className = 'field-row';
-            fieldRow.innerHTML = `
-                <input type="text" class="form-input" placeholder="Specification Name" name="specName[]">
-                <input type="text" class="form-input" placeholder="Value" name="specValue[]">
-                <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
+        // Product modal functions
+        function openProductModal(productId) {
+            const product = dataManager.products[productId];
+            if (!product) return;
+            
+            const modal = document.getElementById('productModal');
+            const modalLeft = document.getElementById('modalLeft');
+            const modalRight = document.getElementById('modalRight');
+            
+            // Left side - Overview and details
+            modalLeft.innerHTML = `
+                <h2>${product.title}</h2>
+                <div class="modal-section">
+                    <h3>Overview</h3>
+                    <p>${product.overview}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Applications</h3>
+                    <ul>
+                        ${product.applications.map(app => `<li>${app}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Certifications</h3>
+                    <div class="spec-grid">
+                        ${product.certifications.map(cert => `
+                            <div class="spec-item">${cert}</div>
+                        `).join('')}
+                    </div>
+                </div>
             `;
-            container.appendChild(fieldRow);
-        }
-
-        function addApplicationField() {
-            const container = document.getElementById('applicationsFields');
-            const fieldRow = document.createElement('div');
-            fieldRow.className = 'field-row';
-            fieldRow.innerHTML = `
-                <input type="text" class="form-input" placeholder="Application Description" name="application[]">
-                <div></div>
-                <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
+            
+            // Right side - Specifications and capacity
+            modalRight.innerHTML = `
+                <div class="modal-section">
+                    <h3>Specifications</h3>
+                    <div class="spec-grid">
+                        ${Object.entries(product.specifications).map(([key, value]) => `
+                            <div class="spec-item"><strong>${key}:</strong><br>${value}</div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3>Capacity & Logistics</h3>
+                    <div class="spec-grid">
+                        ${Object.entries(product.capacity).map(([key, value]) => `
+                            <div class="spec-item"><strong>${key}:</strong><br>${value}</div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <button class="btn-primary" onclick="openQuoteModal('${product.title}')" style="width: 100%; margin-top: 20px;">
+                        Request Quote
+                    </button>
+                </div>
             `;
-            container.appendChild(fieldRow);
+            
+            modal.style.display = 'flex';
         }
 
-        function removeField(button) {
-            button.parentElement.remove();
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
         }
 
-        // Frontend Functions
+        // Search and filter functions
         function searchProducts() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('.category-card');
@@ -2809,7 +2294,6 @@
                 const text = card.textContent.toLowerCase();
                 if (text.includes(searchTerm) || searchTerm === '') {
                     card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.5s ease';
                     hasResults = true;
                 } else {
                     card.style.display = 'none';
@@ -2833,7 +2317,6 @@
             cards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
                     card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.5s ease';
                     hasResults = true;
                 } else {
                     card.style.display = 'none';
@@ -2841,165 +2324,23 @@
             });
 
             noResults.style.display = hasResults ? 'none' : 'block';
-            
-            // Clear search input when filtering
             document.getElementById('searchInput').value = '';
         }
 
-        function openProductModal(productId) {
-            const product = dataManager.products[productId];
-            if (!product) return;
-
-            const modalLeft = document.getElementById('modalLeft');
-            const modalRight = document.getElementById('modalRight');
-            
-            modalLeft.innerHTML = `
-                <h2>${product.title}</h2>
-                
-                <div class="modal-section">
-                    <h3>Product Overview</h3>
-                    <p>${product.overview}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Technical Specifications</h3>
-                    <div class="spec-grid">
-                        ${Object.entries(product.specifications).slice(0, 8).map(([key, value]) => 
-                            `<div class="spec-item">
-                                <strong>${key}:</strong> ${value}
-                            </div>`
-                        ).join('')}
-                    </div>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Applications</h3>
-                    <ul>
-                        ${product.applications.map(app => `<li>${app}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-
-            // Display media if available
-            const mediaContent = [];
-            if (product.media && product.media['product-image']) {
-                mediaContent.push(`
-                    <div class="media-item">
-                        <img src="${product.media['product-image']}" class="media-image" alt="Product Image">
-                        <div class="media-caption">${product.title.split(' ').slice(0, 2).join(' ')}</div>
-                    </div>
-                `);
-            } else {
-                mediaContent.push(`
-                    <div class="media-item" onclick="openMedia('product-image', '${productId}')">
-                        <div class="media-placeholder">Product Image</div>
-                        <div class="media-caption">${product.title.split(' ').slice(0, 2).join(' ')}</div>
-                    </div>
-                `);
-            }
-
-            if (product.media && product.media['process-image']) {
-                mediaContent.push(`
-                    <div class="media-item">
-                        <img src="${product.media['process-image']}" class="media-image" alt="Process Image">
-                        <div class="media-caption">Manufacturing</div>
-                    </div>
-                `);
-            } else {
-                mediaContent.push(`
-                    <div class="media-item" onclick="openMedia('process-image', '${productId}')">
-                        <div class="media-placeholder">Process Image</div>
-                        <div class="media-caption">Manufacturing</div>
-                    </div>
-                `);
-            }
-
-            if (product.media && product.media['process-video']) {
-                mediaContent.push(`
-                    <div class="media-item">
-                        <video src="${product.media['process-video']}" class="media-image" controls></video>
-                        <div class="media-caption">Production</div>
-                    </div>
-                `);
-            } else {
-                mediaContent.push(`
-                    <div class="media-item" onclick="openMedia('process-video', '${productId}')">
-                        <div class="media-placeholder">Process Video</div>
-                        <div class="media-caption">Production</div>
-                    </div>
-                `);
-            }
-
-            if (product.media && product.media['quality-charts']) {
-                mediaContent.push(`
-                    <div class="media-item">
-                        <img src="${product.media['quality-charts']}" class="media-image" alt="Quality Charts">
-                        <div class="media-caption">Analysis</div>
-                    </div>
-                `);
-            } else {
-                mediaContent.push(`
-                    <div class="media-item" onclick="openMedia('quality-charts', '${productId}')">
-                        <div class="media-placeholder">Quality Charts</div>
-                        <div class="media-caption">Analysis</div>
-                    </div>
-                `);
-            }
-
-            modalRight.innerHTML = `
-                <div class="modal-section">
-                    <h3>Production Capacity & Pricing</h3>
-                    <div class="spec-grid">
-                        ${Object.entries(product.capacity).map(([key, value]) => 
-                            `<div class="spec-item">
-                                <strong>${key}:</strong> ${value}
-                            </div>`
-                        ).join('')}
-                    </div>
-                </div>
-
-                <div class="media-section">
-                    <h3>Product Images & Videos</h3>
-                    <div class="media-grid">
-                        ${mediaContent.join('')}
-                    </div>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Quality Assurance</h3>
-                    <p>${product.qualityAssurance || 'Rigorous testing and quality certificates provided with each shipment.'}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Environmental Impact</h3>
-                    <p>${product.environmentalImpact || 'Sustainable production with zero-waste manufacturing processes.'}</p>
-                </div>
-            `;
-            
-            document.getElementById('productModal').style.display = 'block';
-        }
-
-        function openMedia(type, productId) {
-            alert(`Opening ${type} for ${productId}. In a full implementation, this would display actual media content.`);
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function openCategory(category) {
-            console.log(`Opening ${category} category page`);
-        }
-
-        // Quote Modal Functions - Routes to contact settings email
+        // Quote modal functions
         function openQuoteModal(service) {
-            dataManager.loadQuoteCategoryOptions();
             document.getElementById('quoteModal').style.display = 'block';
             
-            // Pre-select the service if applicable
             const materialSelect = document.querySelector('#quoteForm select[name="material"]');
-            if (service) {
-                materialSelect.value = service;
+            if (service && materialSelect) {
+                // Try to find matching option
+                const options = materialSelect.querySelectorAll('option');
+                for (let option of options) {
+                    if (option.value === service || option.textContent.includes(service)) {
+                        materialSelect.value = option.value;
+                        break;
+                    }
+                }
             }
         }
 
@@ -3012,6 +2353,7 @@
             const formData = new FormData(event.target);
             
             const quoteData = {
+                id: Date.now().toString(),
                 company: formData.get('company'),
                 contact: formData.get('contact'),
                 email: formData.get('email'),
@@ -3019,432 +2361,513 @@
                 volume: formData.get('volume'),
                 timeline: formData.get('timeline'),
                 requirements: formData.get('requirements'),
-                interest: 'Quote Request'
+                date: new Date().toLocaleDateString(),
+                type: 'quote'
             };
             
-            dataManager.addInquiry(quoteData);
+            // Add to inquiries
+            dataManager.inquiries.push(quoteData);
             
-            // Show success message with recipient email
-            const primaryEmail = dataManager.contactSettings.primaryRecipient || 'admin@commoditytrading.com';
-            alert(`Thank you for your quote request! We will contact you soon.\n\nYour inquiry will be sent to: ${primaryEmail}`);
+            // Update UI
+            uiManager.updateStats();
+            uiManager.loadInquiriesTable();
+            
+            alert('Thank you for your quote request! We will contact you soon.');
             event.target.reset();
             closeQuoteModal();
         }
 
+        // Form submission
         function submitForm(event) {
             event.preventDefault();
             const formData = new FormData(event.target);
             
             const inquiryData = {
+                id: Date.now().toString(),
                 company: formData.get('company'),
                 contact: formData.get('contact'),
                 email: formData.get('email'),
                 interest: formData.get('interest'),
-                message: formData.get('message')
+                message: formData.get('message'),
+                date: new Date().toLocaleDateString(),
+                type: 'contact'
             };
             
-            dataManager.addInquiry(inquiryData);
+            // Add to inquiries
+            dataManager.inquiries.push(inquiryData);
             
-            // Show success message with recipient email
-            const primaryEmail = dataManager.contactSettings.primaryRecipient || 'admin@commoditytrading.com';
-            alert(`Thank you for your message! We will contact you soon.\n\nYour inquiry will be sent to: ${primaryEmail}`);
+            // Update UI
+            uiManager.updateStats();
+            uiManager.loadInquiriesTable();
+            
+            alert('Thank you for your message! We will contact you soon.');
             event.target.reset();
         }
 
-        // Admin Functions
-        document.querySelectorAll('.menu-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Remove active class from all links
-                document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
-                
-                // Add active class to clicked link
-                link.classList.add('active');
-                
-                // Hide all sections
-                document.querySelectorAll('.content-section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // Show target section
-                const targetSection = link.dataset.section;
-                document.getElementById(targetSection).classList.add('active');
-                
-                // Update page title
-                const title = link.querySelector('span').textContent;
-                document.getElementById('pageTitle').textContent = title;
-
-                // Load section data
-                if (targetSection === 'products') {
-                    dataManager.renderProductsAdmin();
-                } else if (targetSection === 'categories') {
-                    dataManager.renderCategoriesAdmin();
-                } else if (targetSection === 'innovation') {
-                    dataManager.renderProjectsAdmin();
-                } else if (targetSection === 'inquiries') {
-                    dataManager.renderInquiriesAdmin();
-                } else if (targetSection === 'contacts') {
-                    dataManager.loadContactSettings();
-                }
-            });
-        });
-
+        // Admin functions - Products
         function openProductModal() {
-            const modal = document.getElementById('adminProductModal');
-            const form = document.getElementById('productForm');
-            const title = document.getElementById('productModalTitle');
-
-            title.textContent = 'Add New Product';
-            form.reset();
-            
-            // Reset dynamic fields
-            document.getElementById('specificationsFields').innerHTML = `
-                <div class="field-row">
-                    <input type="text" class="form-input" placeholder="Specification Name" name="specName[]">
-                    <input type="text" class="form-input" placeholder="Value" name="specValue[]">
-                    <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                </div>
-            `;
-            
-            document.getElementById('applicationsFields').innerHTML = `
-                <div class="field-row">
-                    <input type="text" class="form-input" placeholder="Application Description" name="application[]">
-                    <div></div>
-                    <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                </div>
-            `;
-
-            // Reset media uploads
-            ['productImage', 'processImage', 'processVideo', 'qualityCharts'].forEach(id => {
-                document.getElementById(id).value = '';
-                document.getElementById(id + 'Preview').innerHTML = '';
-            });
-            
-            dataManager.loadCategoryOptions();
-            modal.style.display = 'block';
+            // Admin product modal (different from frontend modal)
+            showAdminModal('Add New Product', getProductFormHTML());
         }
 
         function editProduct(productId) {
-            const modal = document.getElementById('adminProductModal');
-            const form = document.getElementById('productForm');
-            const title = document.getElementById('productModalTitle');
             const product = dataManager.products[productId];
-
-            title.textContent = 'Edit Product';
-            form.reset();
-            
-            // Fill basic fields
-            form.elements['id'].value = productId;
-            form.elements['title'].value = product.title;
-            form.elements['category'].value = product.category;
-            form.elements['overview'].value = product.overview;
-            form.elements['monthlyCapacity'].value = product.capacity['Monthly Capacity'] || '';
-            form.elements['annualCapacity'].value = product.capacity['Annual Capacity'] || '';
-            form.elements['price'].value = product.capacity['Price'] || '';
-            form.elements['leadTime'].value = product.capacity['Lead Time'] || '';
-            form.elements['environmentalImpact'].value = product.environmentalImpact || '';
-            form.elements['qualityAssurance'].value = product.qualityAssurance || '';
-
-            // Fill specifications
-            const specsContainer = document.getElementById('specificationsFields');
-            specsContainer.innerHTML = '';
-            Object.entries(product.specifications).forEach(([key, value]) => {
-                const fieldRow = document.createElement('div');
-                fieldRow.className = 'field-row';
-                fieldRow.innerHTML = `
-                    <input type="text" class="form-input" placeholder="Specification Name" name="specName[]" value="${key}">
-                    <input type="text" class="form-input" placeholder="Value" name="specValue[]" value="${value}">
-                    <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                `;
-                specsContainer.appendChild(fieldRow);
-            });
-
-            // Fill applications
-            const appsContainer = document.getElementById('applicationsFields');
-            appsContainer.innerHTML = '';
-            product.applications.forEach(app => {
-                const fieldRow = document.createElement('div');
-                fieldRow.className = 'field-row';
-                fieldRow.innerHTML = `
-                    <input type="text" class="form-input" placeholder="Application Description" name="application[]" value="${app}">
-                    <div></div>
-                    <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
-                `;
-                appsContainer.appendChild(fieldRow);
-            });
-
-            // Load existing media
-            if (product.media) {
-                Object.entries(product.media).forEach(([type, src]) => {
-                    const inputId = type.replace('-', '') + (type.includes('image') ? 'Image' : type.includes('video') ? 'Video' : 'Charts');
-                    const preview = document.getElementById(inputId + 'Preview');
-                    if (src && preview) {
-                        if (type.includes('video')) {
-                            preview.innerHTML = `
-                                <video src="${src}" class="upload-preview" controls></video>
-                                <button type="button" class="upload-remove" onclick="removeMedia('${inputId}')">&times;</button>
-                            `;
-                        } else {
-                            preview.innerHTML = `
-                                <img src="${src}" class="upload-preview" alt="Preview">
-                                <button type="button" class="upload-remove" onclick="removeMedia('${inputId}')">&times;</button>
-                            `;
-                        }
-                        document.getElementById(inputId).dataset.fileData = src;
-                    }
-                });
-            }
-
-            dataManager.loadCategoryOptions();
-            modal.style.display = 'block';
+            showAdminModal('Edit Product', getProductFormHTML(product));
         }
 
-        function openCategoryModal() {
-            const modal = document.getElementById('adminCategoryModal');
-            const form = document.getElementById('categoryForm');
-            const title = document.getElementById('categoryModalTitle');
+        function viewProduct(productId) {
+            openProductModal(productId); // Use frontend modal for viewing
+        }
 
-            title.textContent = 'Add New Category';
-            form.reset();
-            modal.style.display = 'block';
+        function toggleProduct(productId) {
+            const product = dataManager.products[productId];
+            product.status = product.status === 'active' ? 'inactive' : 'active';
+            uiManager.loadProductsTable();
+            uiManager.loadFrontendData(); // Refresh frontend
+        }
+
+        function deleteProduct(productId) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                delete dataManager.products[productId];
+                uiManager.loadProductsTable();
+                uiManager.updateStats();
+                uiManager.loadFrontendData();
+            }
+        }
+
+        // Admin functions - Categories
+        function openCategoryModal() {
+            showAdminModal('Add New Category', getCategoryFormHTML());
         }
 
         function editCategory(categoryId) {
-            const modal = document.getElementById('adminCategoryModal');
-            const form = document.getElementById('categoryForm');
-            const title = document.getElementById('categoryModalTitle');
             const category = dataManager.categories[categoryId];
-
-            title.textContent = 'Edit Category';
-            form.elements['id'].value = categoryId;
-            form.elements['name'].value = category.name;
-            form.elements['description'].value = category.description;
-
-            modal.style.display = 'block';
+            showAdminModal('Edit Category', getCategoryFormHTML(category));
         }
 
-        function openProjectModal() {
-            const modal = document.getElementById('adminProjectModal');
-            const form = document.getElementById('projectForm');
-            const title = document.getElementById('projectModalTitle');
+        function deleteCategory(categoryId) {
+            // Check if category has products
+            const hasProducts = Object.values(dataManager.products).some(p => p.category === categoryId);
+            if (hasProducts) {
+                alert('Cannot delete category that contains products. Please move or delete products first.');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to delete this category?')) {
+                delete dataManager.categories[categoryId];
+                uiManager.loadCategoriesTable();
+                uiManager.updateStats();
+                uiManager.loadFrontendData();
+            }
+        }
 
-            title.textContent = 'Add New Project';
-            form.reset();
-            modal.style.display = 'block';
+        // Admin functions - Projects
+        function openProjectModal() {
+            showAdminModal('Add New Project', getProjectFormHTML());
         }
 
         function editProject(projectId) {
-            const modal = document.getElementById('adminProjectModal');
-            const form = document.getElementById('projectForm');
-            const title = document.getElementById('projectModalTitle');
-            const project = dataManager.projects[projectId];
-
-            title.textContent = 'Edit Project';
-            form.elements['id'].value = projectId;
-            form.elements['title'].value = project.title;
-            form.elements['phase'].value = project.phase;
-            form.elements['expectedDate'].value = project.expectedDate;
-
-            modal.style.display = 'block';
+            const project = dataManager.researchProjects.find(p => p.id === projectId);
+            showAdminModal('Edit Project', getProjectFormHTML(project));
         }
 
-        function editInquiryEmail(index) {
-            const modal = document.getElementById('inquiryEditModal');
-            const form = document.getElementById('inquiryEditForm');
-            const inquiry = dataManager.inquiries[index];
-
-            form.elements['index'].value = index;
-            form.elements['primaryRecipient'].value = inquiry.recipients ? inquiry.recipients.primary : dataManager.contactSettings.primaryRecipient;
-            form.elements['ccEmail1'].value = inquiry.recipients && inquiry.recipients.cc[0] ? inquiry.recipients.cc[0] : '';
-            form.elements['ccEmail2'].value = inquiry.recipients && inquiry.recipients.cc[1] ? inquiry.recipients.cc[1] : '';
-
-            modal.style.display = 'block';
+        function deleteProject(projectId) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                dataManager.researchProjects = dataManager.researchProjects.filter(p => p.id !== projectId);
+                uiManager.loadProjectsTable();
+                uiManager.updateStats();
+                uiManager.renderResearchProjects();
+            }
         }
 
-        function closeAdminModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+        // Admin functions - Inquiries
+        function viewInquiry(inquiryId) {
+            const inquiry = dataManager.inquiries.find(i => i.id === inquiryId);
+            if (!inquiry) return;
+            
+            const content = `
+                <div class="form-section">
+                    <h4>Contact Information</h4>
+                    <p><strong>Company:</strong> ${inquiry.company}</p>
+                    <p><strong>Contact Person:</strong> ${inquiry.contact}</p>
+                    <p><strong>Email:</strong> ${inquiry.email}</p>
+                    <p><strong>Date:</strong> ${inquiry.date}</p>
+                </div>
+                <div class="form-section">
+                    <h4>Inquiry Details</h4>
+                    ${inquiry.material ? `<p><strong>Material:</strong> ${inquiry.material}</p>` : ''}
+                    ${inquiry.volume ? `<p><strong>Volume:</strong> ${inquiry.volume}</p>` : ''}
+                    ${inquiry.timeline ? `<p><strong>Timeline:</strong> ${inquiry.timeline}</p>` : ''}
+                    ${inquiry.interest ? `<p><strong>Interest Area:</strong> ${inquiry.interest}</p>` : ''}
+                    ${inquiry.message ? `<p><strong>Message:</strong> ${inquiry.message}</p>` : ''}
+                    ${inquiry.requirements ? `<p><strong>Requirements:</strong> ${inquiry.requirements}</p>` : ''}
+                </div>
+            `;
+            
+            showAdminModal('View Inquiry', content);
         }
 
-        function viewInquiry(index) {
-            const inquiry = dataManager.inquiries[index];
-            const recipients = inquiry.recipients || { primary: 'admin@commoditytrading.com', cc: [] };
-            const ccList = recipients.cc.length > 0 ? recipients.cc.join(', ') : 'None';
-            
-            let message = `Inquiry Details:\n\nCompany: ${inquiry.company}\nContact: ${inquiry.contact}\nEmail: ${inquiry.email}\nInterest: ${inquiry.interest}\nMessage: ${inquiry.message}`;
-            
-            if (inquiry.material) {
-                message += `\nMaterial: ${inquiry.material}`;
+        function deleteInquiry(inquiryId) {
+            if (confirm('Are you sure you want to delete this inquiry?')) {
+                dataManager.inquiries = dataManager.inquiries.filter(i => i.id !== inquiryId);
+                uiManager.loadInquiriesTable();
+                uiManager.updateStats();
             }
-            if (inquiry.volume) {
-                message += `\nVolume: ${inquiry.volume}`;
-            }
-            if (inquiry.timeline) {
-                message += `\nTimeline: ${inquiry.timeline}`;
-            }
-            if (inquiry.requirements) {
-                message += `\nRequirements: ${inquiry.requirements}`;
-            }
-            
-            message += `\n\nEmail Recipients:\nPrimary: ${recipients.primary}\nCC: ${ccList}`;
-            
-            alert(message);
         }
 
-        function saveContactSettings(event) {
+        // Admin modal functions
+        function showAdminModal(title, content) {
+            document.getElementById('adminModalTitle').textContent = title;
+            document.getElementById('adminModalBody').innerHTML = content;
+            document.getElementById('adminModal').style.display = 'block';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        // Form generators
+        function getProductFormHTML(product = null) {
+            const isEdit = !!product;
+            const categories = Object.values(dataManager.categories);
+            
+            return `
+                <form onsubmit="saveProduct(event, ${isEdit ? `'${product.id}'` : 'null'})">
+                    <div class="form-section">
+                        <h4>Basic Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Product Title</label>
+                                <input type="text" class="form-input" name="title" value="${product ? product.title : ''}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" name="category" required>
+                                    <option value="">Select Category</option>
+                                    ${categories.map(cat => `
+                                        <option value="${cat.id}" ${product && product.category === cat.id ? 'selected' : ''}>
+                                            ${cat.name}
+                                        </option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row-full">
+                            <div class="form-group">
+                                <label class="form-label">Overview</label>
+                                <textarea class="form-input" name="overview" rows="3" required>${product ? product.overview : ''}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Specifications</h4>
+                        <div id="specificationsFields">
+                            ${product ? Object.entries(product.specifications).map(([key, value]) => `
+                                <div class="field-row">
+                                    <input type="text" class="form-input" name="spec_key[]" value="${key}" placeholder="Specification Name">
+                                    <input type="text" class="form-input" name="spec_value[]" value="${value}" placeholder="Value">
+                                    <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
+                                </div>
+                            `).join('') : '<div class="field-row"><input type="text" class="form-input" name="spec_key[]" placeholder="Specification Name"><input type="text" class="form-input" name="spec_value[]" placeholder="Value"><button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button></div>'}
+                        </div>
+                        <button type="button" class="btn-small btn-add" onclick="addSpecField()">Add Specification</button>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Capacity Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Monthly Capacity</label>
+                                <input type="text" class="form-input" name="monthly_capacity" value="${product ? product.capacity['Monthly Capacity'] : ''}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Lead Time</label>
+                                <input type="text" class="form-input" name="lead_time" value="${product ? product.capacity['Lead Time'] : ''}" required>
+                            </div>
+                        </div>
+                        <div class="form-row-full">
+                            <div class="form-group">
+                                <label class="form-label">Minimum Order</label>
+                                <input type="text" class="form-input" name="minimum_order" value="${product ? product.capacity['Minimum Order'] : ''}" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Applications & Certifications</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Applications (comma-separated)</label>
+                                <textarea class="form-input" name="applications" rows="2">${product ? product.applications.join(', ') : ''}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Certifications (comma-separated)</label>
+                                <textarea class="form-input" name="certifications" rows="2">${product ? product.certifications.join(', ') : ''}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 20px;">
+                        <button type="button" class="btn-secondary" onclick="closeAdminModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">${isEdit ? 'Update' : 'Add'} Product</button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function getCategoryFormHTML(category = null) {
+            const isEdit = !!category;
+            
+            return `
+                <form onsubmit="saveCategory(event, ${isEdit ? `'${category.id}'` : 'null'})">
+                    <div class="form-section">
+                        <h4>Category Information</h4>
+                        <div class="form-row-full">
+                            <div class="form-group">
+                                <label class="form-label">Category Name</label>
+                                <input type="text" class="form-input" name="name" value="${category ? category.name : ''}" required>
+                            </div>
+                        </div>
+                        <div class="form-row-full">
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-input" name="description" rows="3" required>${category ? category.description : ''}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 20px;">
+                        <button type="button" class="btn-secondary" onclick="closeAdminModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">${isEdit ? 'Update' : 'Add'} Category</button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function getProjectFormHTML(project = null) {
+            const isEdit = !!project;
+            
+            return `
+                <form onsubmit="saveProject(event, ${isEdit ? `'${project.id}'` : 'null'})">
+                    <div class="form-section">
+                        <h4>Project Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Project Name</label>
+                                <input type="text" class="form-input" name="name" value="${project ? project.name : ''}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phase</label>
+                                <select class="form-select" name="phase" required>
+                                    <option value="">Select Phase</option>
+                                    <option value="research-phase" ${project && project.phase === 'research-phase' ? 'selected' : ''}>Research Phase</option>
+                                    <option value="pilot-testing" ${project && project.phase === 'pilot-testing' ? 'selected' : ''}>Pilot Testing</option>
+                                    <option value="manufacturing-phase" ${project && project.phase === 'manufacturing-phase' ? 'selected' : ''}>Manufacturing Phase</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Expected Completion</label>
+                                <input type="text" class="form-input" name="expected" value="${project ? project.expected : ''}" placeholder="e.g., Q2 2026" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" name="status" required>
+                                    <option value="active" ${project && project.status === 'active' ? 'selected' : ''}>Active</option>
+                                    <option value="inactive" ${project && project.status === 'inactive' ? 'selected' : ''}>Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 20px;">
+                        <button type="button" class="btn-secondary" onclick="closeAdminModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">${isEdit ? 'Update' : 'Add'} Project</button>
+                    </div>
+                </form>
+            `;
+        }
+
+        // Form save functions
+        function saveProduct(event, productId) {
             event.preventDefault();
             const formData = new FormData(event.target);
-            const settings = {};
             
-            for (let [key, value] of formData.entries()) {
-                settings[key] = value;
-            }
+            // Generate ID for new products
+            const id = productId || formData.get('title').toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
             
-            dataManager.saveContactSettings(settings);
-            alert('Contact settings saved successfully!');
-        }
-
-        // Form submissions
-        document.getElementById('productForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const productData = {};
-            
-            // Get all form data
-            for (let [key, value] of formData.entries()) {
-                if (productData[key]) {
-                    if (Array.isArray(productData[key])) {
-                        productData[key].push(value);
-                    } else {
-                        productData[key] = [productData[key], value];
-                    }
-                } else {
-                    productData[key] = value;
-                }
-            }
-
-            // Collect media data
-            const media = {};
-            ['productImage', 'processImage', 'processVideo', 'qualityCharts'].forEach(id => {
-                const input = document.getElementById(id);
-                if (input.dataset.fileData) {
-                    const type = id.replace('Image', '-image').replace('Video', '-video').replace('Charts', '-charts');
-                    media[type] = input.dataset.fileData;
+            // Build specifications object
+            const specKeys = formData.getAll('spec_key[]');
+            const specValues = formData.getAll('spec_value[]');
+            const specifications = {};
+            specKeys.forEach((key, index) => {
+                if (key && specValues[index]) {
+                    specifications[key] = specValues[index];
                 }
             });
-            productData.media = media;
+            
+            // Build product object
+            const product = {
+                id: id,
+                title: formData.get('title'),
+                category: formData.get('category'),
+                overview: formData.get('overview'),
+                specifications: specifications,
+                capacity: {
+                    'Monthly Capacity': formData.get('monthly_capacity'),
+                    'Lead Time': formData.get('lead_time'),
+                    'Minimum Order': formData.get('minimum_order')
+                },
+                applications: formData.get('applications').split(',').map(s => s.trim()).filter(s => s),
+                certifications: formData.get('certifications').split(',').map(s => s.trim()).filter(s => s),
+                status: 'active'
+            };
+            
+            dataManager.products[id] = product;
+            
+            // Update UI
+            uiManager.loadProductsTable();
+            uiManager.updateStats();
+            uiManager.loadFrontendData();
+            closeAdminModal();
+            
+            alert(`Product ${productId ? 'updated' : 'added'} successfully!`);
+        }
 
-            if (productData.id) {
-                dataManager.editProduct(productData.id, productData);
-            } else {
-                dataManager.addProduct(productData);
-            }
-
-            closeAdminModal('adminProductModal');
-            alert('Product saved successfully!');
-        });
-
-        document.getElementById('categoryForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const categoryData = {
-                id: formData.get('id') || null,
+        function saveCategory(event, categoryId) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            
+            const id = categoryId || formData.get('name').toLowerCase().replace(/[^a-z0-9]/g, '-');
+            
+            const category = {
+                id: id,
                 name: formData.get('name'),
                 description: formData.get('description')
             };
+            
+            dataManager.categories[id] = category;
+            
+            // Update UI
+            uiManager.loadCategoriesTable();
+            uiManager.updateStats();
+            uiManager.loadFrontendData();
+            closeAdminModal();
+            
+            alert(`Category ${categoryId ? 'updated' : 'added'} successfully!`);
+        }
 
-            if (categoryData.id) {
-                dataManager.editCategory(categoryData.id, categoryData);
-            } else {
-                dataManager.addCategory(categoryData);
-            }
-
-            closeAdminModal('adminCategoryModal');
-            alert('Category saved successfully!');
-        });
-
-        document.getElementById('projectForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const projectData = {
-                id: formData.get('id') || null,
-                title: formData.get('title'),
+        function saveProject(event, projectId) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            
+            const id = projectId || Date.now().toString();
+            
+            const project = {
+                id: id,
+                name: formData.get('name'),
                 phase: formData.get('phase'),
-                expectedDate: formData.get('expectedDate')
+                expected: formData.get('expected'),
+                status: formData.get('status')
             };
-
-            if (projectData.id) {
-                dataManager.editProject(projectData.id, projectData);
+            
+            if (projectId) {
+                // Update existing
+                const index = dataManager.researchProjects.findIndex(p => p.id === projectId);
+                if (index !== -1) {
+                    dataManager.researchProjects[index] = project;
+                }
             } else {
-                dataManager.addProject(projectData);
+                // Add new
+                dataManager.researchProjects.push(project);
             }
+            
+            // Update UI
+            uiManager.loadProjectsTable();
+            uiManager.updateStats();
+            uiManager.renderResearchProjects();
+            closeAdminModal();
+            
+            alert(`Project ${projectId ? 'updated' : 'added'} successfully!`);
+        }
 
-            closeAdminModal('adminProjectModal');
-            alert('Project saved successfully!');
-        });
+        // Helper functions for dynamic form fields
+        function addSpecField() {
+            const container = document.getElementById('specificationsFields');
+            const fieldRow = document.createElement('div');
+            fieldRow.className = 'field-row';
+            fieldRow.innerHTML = `
+                <input type="text" class="form-input" name="spec_key[]" placeholder="Specification Name">
+                <input type="text" class="form-input" name="spec_value[]" placeholder="Value">
+                <button type="button" class="btn-small btn-remove" onclick="removeField(this)">Remove</button>
+            `;
+            container.appendChild(fieldRow);
+        }
 
-        document.getElementById('inquiryEditForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const index = parseInt(formData.get('index'));
-            const emailSettings = {
-                primaryRecipient: formData.get('primaryRecipient'),
-                ccEmail1: formData.get('ccEmail1'),
-                ccEmail2: formData.get('ccEmail2')
+        function removeField(button) {
+            button.parentElement.remove();
+        }
+
+        // Contact settings
+        function saveContactSettings() {
+            const settings = {
+                salesEmail: document.getElementById('salesEmailInput').value,
+                salesPhone: document.getElementById('salesPhoneInput').value,
+                techEmail: document.getElementById('techEmailInput').value,
+                techPhone: document.getElementById('techPhoneInput').value,
+                rdEmail: document.getElementById('rdEmailInput').value,
+                rdPhone: document.getElementById('rdPhoneInput').value
             };
-
-            dataManager.updateInquiryEmailSettings(index, emailSettings);
-            closeAdminModal('inquiryEditModal');
-            alert('Email settings updated successfully!');
-        });
+            
+            // Update frontend display
+            document.getElementById('salesEmail').textContent = settings.salesEmail;
+            document.getElementById('salesPhone').textContent = settings.salesPhone;
+            document.getElementById('techEmail').textContent = settings.techEmail;
+            document.getElementById('techPhone').textContent = settings.techPhone;
+            document.getElementById('rdEmail').textContent = settings.rdEmail;
+            document.getElementById('rdPhone').textContent = settings.rdPhone;
+            
+            alert('Contact settings saved successfully!');
+        }
 
         // Event listeners
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            if (e.target.value.length > 0) {
-                searchProducts();
-            } else {
-                document.querySelectorAll('.category-card').forEach(card => {
-                    card.style.display = 'block';
+        document.addEventListener('DOMContentLoaded', function() {
+            uiManager.init();
+            
+            // Search input event listener
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    if (e.target.value.length > 0) {
+                        searchProducts();
+                    } else {
+                        document.querySelectorAll('.category-card').forEach(card => {
+                            card.style.display = 'block';
+                        });
+                        document.getElementById('noResults').style.display = 'none';
+                    }
                 });
-                document.getElementById('noResults').style.display = 'none';
             }
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                const quoteModal = document.getElementById('quoteModal');
+                const adminModal = document.getElementById('adminModal');
+                const productModal = document.getElementById('productModal');
+                
+                if (event.target === quoteModal) {
+                    quoteModal.style.display = 'none';
+                }
+                if (event.target === adminModal) {
+                    adminModal.style.display = 'none';
+                }
+                if (event.target === productModal) {
+                    productModal.style.display = 'none';
+                }
+            });
         });
-
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchProducts();
-            }
-        });
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal') || event.target.classList.contains('admin-modal') || event.target.classList.contains('quote-modal')) {
-                event.target.style.display = 'none';
-            }
-        }
     </script>
-    <!-- other content… -->
-
-    <!-- Product Popup HTML (earlier step) -->
-    <div id="productModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;display:flex;">
-      <!--…popup contents…-->
-    </div>
-
-    <!-- Now add the open/close functions here -->
-    <script>
-      function openProductModal(id) {
-        const p = dataManager.products[id];
-        document.getElementById('modalLeft').innerHTML = `<h2>${p.title}</h2><p>${p.overview}</p>`;
-        let specs = '';
-        for (let k in p.specifications) specs += `<div><strong>${k}:</strong> ${p.specifications[k]}</div>`;
-        document.getElementById('modalRight').innerHTML = `<h3>Specifications</h3>` + specs;
-        document.getElementById('productModal').style.display = 'flex';
-      }
-      function closeProductModal() {
-        document.getElementById('productModal').style.display = 'none';
-      }
-    </script>
-</body>
-</html>
 </body>
 </html>
