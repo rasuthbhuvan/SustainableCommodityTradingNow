@@ -1085,5 +1085,28 @@
             }
         }
     </script>
+    <!-- other content… -->
+
+    <!-- Product Popup HTML (earlier step) -->
+    <div id="productModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;display:flex;">
+      <!--…popup contents…-->
+    </div>
+
+    <!-- Now add the open/close functions here -->
+    <script>
+      function openProductModal(id) {
+        const p = dataManager.products[id];
+        document.getElementById('modalLeft').innerHTML = `<h2>${p.title}</h2><p>${p.overview}</p>`;
+        let specs = '';
+        for (let k in p.specifications) specs += `<div><strong>${k}:</strong> ${p.specifications[k]}</div>`;
+        document.getElementById('modalRight').innerHTML = `<h3>Specifications</h3>` + specs;
+        document.getElementById('productModal').style.display = 'flex';
+      }
+      function closeProductModal() {
+        document.getElementById('productModal').style.display = 'none';
+      }
+    </script>
+</body>
+</html>
 </body>
 </html>
