@@ -2869,5 +2869,331 @@
             });
         });
     </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    // SUPABASE CONFIGURATION - Using your actual credentials
+    const SUPABASE_URL = 'https://kunrareegagtlxiudfa.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1bnJhcmllZWdhZ3RreGl1ZGZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk1MTIyMjgsImV4cCI6MjA3NTA4ODIyOH0.cAcKViNIT6qI5eFM18IDaWKWsAIfwQ3gvugFo0iWbaI';
+    
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Data Manager that now uses Supabase
+    const dataManager = {
+        products: {},
+        categories: {},
+        projects: {},
+        inquiries: {},
+        contactSettings: {}
+    };
+
+    // Initialize admin panel
+    document.addEventListener('DOMContentLoaded', function() {
+        loadAllDataFromSupabase();
+        showSection('dashboard');
+    });
+
+    // Load all data from Supabase
+    async function loadAllDataFromSupabase() {
+        try {
+            // Load products
+            const {  products, error: prodError } = await supabase
+                .from('products')
+                .select('*');
+            
+            if (!prodError && products) {
+                dataManager.products = {};
+                products.forEach(product => {
+                    dataManager.products[product.id] = product;
+                });
+            }
+
+            // Load categories
+            const {  categories, error: catError } = await supabase
+                .from('categories')
+                .select('*');
+                
+            if (!catError && categories) {
+                dataManager.categories = {};
+                categories.forEach(category => {
+                    dataManager.categories[category.id] = category;
+                });
+            }
+
+            // Load projects (R&D projects)
+            const {  projects, error: projError } = await supabase
+                .from('projects')
+                .select('*');
+                
+            if (!projError && projects) {
+                dataManager.projects = {};
+                projects.forEach(project => {
+                    dataManager.projects[project.id] = project;
+                });
+            }
+
+            // Load inquiries
+            const {  inquiries, error: inqError } = await supabase
+                .from('inquiries')
+                .select('*');
+                
+            if (!inqError && inquiries) {
+                dataManager.inquiries = {};
+                inquiries.forEach(inquiry => {
+                    dataManager.inquiries[inquiry.id] = inquiry;
+                });
+            }
+
+            // Load contact settings
+            const {  settings, error: settError } = await supabase
+                .from('contact_settings')
+                .select('*')
+                .limit(1);
+                
+            if (!settError && settings && settings.length > 0) {
+                dataManager.contactSettings = settings[0];
+            }
+
+            console.log('Data loaded from Supabase successfully');
+            
+            // Refresh all tables and stats
+            renderDashboard();
+            renderProducts();
+            renderCategories();
+            renderProjects();
+            renderInquiries();
+            
+        } catch (error) {
+            console.error('Error loading data from Supabase:', error);
+            
+            // Load default/demo data if Supabase fails
+            loadDefaultData();
+        }
+    }
+
+    // Save product to Supabase
+    async function saveProductToSupabase(product) {
+        try {
+            const { data, error } = await supabase
+                .from('products')
+                .upsert([product], { onConflict: 'id' });
+                
+            if (error) throw error;
+            
+            dataManager.products[product.id] = product;
+            return true;
+        } catch (error) {
+            console.error('Error saving product:', error);
+            alert('Error saving product to database');
+            return false;
+        }
+    }
+
+    // Save category to Supabase
+    async function saveCategoryToSupabase(category) {
+        try {
+            const { data, error } = await supabase
+                .from('categories')
+                .upsert([category], { onConflict: 'id' });
+                
+            if (error) throw error;
+            
+            dataManager.categories[category.id] = category;
+            return true;
+        } catch (error) {
+            console.error('Error saving category:', error);
+            alert('Error saving category to database');
+            return false;
+        }
+    }
+
+    // Save project to Supabase
+    async function saveProjectToSupabase(project) {
+        try {
+            const { data, error } = await supabase
+                .from('projects')
+                .upsert([project], { onConflict: 'id' });
+                
+            if (error) throw error;
+            
+            dataManager.projects[project.id] = project;
+            return true;
+        } catch (error) {
+            console.error('Error saving project:', error);
+            alert('Error saving project to database');
+            return false;
+        }
+    }
+
+    // Delete product from Supabase
+    async function deleteProductFromSupabase(productId) {
+        try {
+            const { error } = await supabase
+                .from('products')
+                .delete()
+                .eq('id', productId);
+                
+            if (error) throw error;
+            
+            delete dataManager.products[productId];
+            return true;
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            alert('Error deleting product from database');
+            return false;
+        }
+    }
+
+    // Delete category from Supabase
+    async function deleteCategoryFromSupabase(categoryId) {
+        try {
+            const { error } = await supabase
+                .from('categories')
+                .delete()
+                .eq('id', categoryId);
+                
+            if (error) throw error;
+            
+            delete dataManager.categories[categoryId];
+            return true;
+        } catch (error) {
+            console.error('Error deleting category:', error);
+            alert('Error deleting category from database');
+            return false;
+        }
+    }
+
+    // Your existing admin panel functions go here...
+    // (Keep all your existing functions like toggleMode, showSection, renderDashboard, etc.)
+    
+    // Update the product save function to use Supabase
+    async function saveProduct() {
+        const form = document.getElementById('productForm');
+        const formData = new FormData(form);
+        
+        const product = {
+            id: formData.get('id') || generateId(),
+            title: formData.get('title'),
+            category: formData.get('category'),
+            monthly_capacity: formData.get('monthlyCapacity'),
+            price: formData.get('price'),
+            overview: formData.get('overview'),
+            applications: formData.get('applications'),
+            specifications: JSON.parse(formData.get('specifications') || '{}'),
+            processing_methods: formData.get('processingMethods') ? formData.get('processingMethods').split('\n') : [],
+            certifications: formData.get('certifications') ? formData.get('certifications').split('\n') : [],
+            images: JSON.parse(formData.get('images') || '[]'),
+            videos: JSON.parse(formData.get('videos') || '[]'),
+            documents: JSON.parse(formData.get('documents') || '[]'),
+            status: formData.get('status') || 'active',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        };
+        
+        const success = await saveProductToSupabase(product);
+        
+        if (success) {
+            closeModal('productModal');
+            renderProducts();
+            renderDashboard();
+            alert('Product saved successfully!');
+        }
+    }
+
+    // Update the category save function to use Supabase
+    async function saveCategory() {
+        const form = document.getElementById('categoryForm');
+        const formData = new FormData(form);
+        
+        const category = {
+            id: formData.get('id') || generateId(),
+            name: formData.get('name'),
+            description: formData.get('description'),
+            status: formData.get('status') || 'active',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        };
+        
+        const success = await saveCategoryToSupabase(category);
+        
+        if (success) {
+            closeModal('categoryModal');
+            renderCategories();
+            renderDashboard();
+            alert('Category saved successfully!');
+        }
+    }
+
+    // Update delete functions to use Supabase
+    async function deleteProduct(id) {
+        if (confirm('Are you sure you want to delete this product?')) {
+            const success = await deleteProductFromSupabase(id);
+            
+            if (success) {
+                renderProducts();
+                renderDashboard();
+                alert('Product deleted successfully!');
+            }
+        }
+    }
+
+    async function deleteCategory(id) {
+        if (confirm('Are you sure you want to delete this category?')) {
+            const success = await deleteCategoryFromSupabase(id);
+            
+            if (success) {
+                renderCategories();
+                renderDashboard();
+                alert('Category deleted successfully!');
+            }
+        }
+    }
+
+    // Helper function to generate unique IDs
+    function generateId() {
+        return 'id_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    }
+
+    // Load default data fallback (keep your existing demo data)
+    function loadDefaultData() {
+        // Your existing demo data here...
+        dataManager.categories = {
+            'proteins': {
+                id: 'proteins',
+                name: 'Sustainable Proteins',
+                description: 'High-quality proteins derived from waste sources for various industrial applications',
+                status: 'active'
+            },
+            'catalysts': {
+                id: 'catalysts',
+                name: 'Advanced Catalysts',
+                description: 'Innovative catalysts from industrial waste streams for green manufacturing',
+                status: 'active'
+            }
+        };
+
+        dataManager.products = {
+            'poultry-protein': {
+                id: 'poultry-protein',
+                title: 'Poultry Waste-Derived Protein',
+                category: 'proteins',
+                monthly_capacity: '50 tons/month',
+                price: '$2,500/ton',
+                overview: 'High-quality protein extracted from poultry waste streams',
+                applications: 'Animal feed, fertilizer, industrial applications',
+                specifications: { 'Protein Content': '85-92%', 'Moisture': '<8%' },
+                status: 'active'
+            }
+        };
+
+        // Render with demo data
+        renderDashboard();
+        renderProducts();
+        renderCategories();
+    }
+
+    // Add all your existing admin panel functions here...
+    // (I'm not including them all to keep this response focused, but keep all your existing functions)
+
+</script>
 </body>
 </html>
